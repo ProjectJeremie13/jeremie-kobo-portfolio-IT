@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark-green">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeremie Kobo — IT Service &amp; Technical Support Professional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #0b0e0c;
+      --surface: #131815;
+      --surface-2: #1b221e;
+      --text: #f1f5f2;
+      --muted: #9aa89f;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.14);
+      --border: rgba(255, 255, 255, 0.1);
+      --btn-text: #07130b;
+    }
+
+    html[data-theme="light"] {
+      --bg: #ffffff;
+      --surface: #f5f7f6;
+      --surface-2: #e9eeeb;
+      --text: #111613;
+      --muted: #526058;
+      --accent: #16a34a;
+      --accent-soft: rgba(22, 163, 74, 0.12);
+      --border: rgba(17, 22, 19, 0.12);
+      --btn-text: #ffffff;
+    }
+
+    html[data-theme="blue-grey"] {
+      --bg: #d9e4ec;
+      --surface: #e8eff4;
+      --surface-2: #c6d5e0;
+      --text: #1e293b;
+      --muted: #475569;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.14);
+      --border: rgba(30, 41, 59, 0.14);
+      --btn-text: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .mono {
+      font-family: 'Space Mono', monospace;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.8rem;
+    }
+
+    .nav-list a {
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-list a:hover,
+    .nav-list a.active {
+      color: var(--accent);
+    }
+
+    .theme-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+
+    .theme-btn {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .theme-btn:hover {
+      color: var(--text);
+    }
+
+    .theme-btn.active {
+      background: var(--accent);
+      color: var(--btn-text);
+    }
+
+    .section-block {
+      padding: 84px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-tag {
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.3rem);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.35rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-sub {
+      font-size: 1.04rem;
+      max-width: 620px;
+      margin-bottom: 24px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      transition: transform 0.15s ease, background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--btn-text);
+      border-color: var(--accent);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .visual-frame {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .visual-frame img {
+      display: block;
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .visual-caption {
+      padding: 12px 16px;
+      font-size: 0.76rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .preview-strip {
+      margin-top: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .swatch-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .swatch-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .swatch-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      font-size: 0.74rem;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .filter-btn {
+      background: var(--surface);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .bar-track {
+      height: 8px;
+      background: var(--surface-2);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    .qa-theme-row {
+      margin-bottom: 15px;
+    }
+
+    .qa-theme-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      margin-bottom: 4px;
+    }
+
+    .clean-list {
+      margin-top: 10px;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .clean-list li {
+      margin-bottom: 8px;
+    }
+
+    .triage-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    .scenario-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 18px;
+    }
+
+    .triage-output {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      font-size: 0.9rem;
+    }
+
+    .triage-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.78rem;
+    }
+
+    .triage-badge {
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .gallery-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item p {
+      padding: 10px 14px;
+      font-size: 0.78rem;
+    }
+
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-link {
+      display: block;
+      padding: 16px;
+      border-radius: 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s ease;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+    }
+
+    .contact-label {
+      font-size: 0.74rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-val {
+      font-weight: 700;
+      font-size: 0.94rem;
+      word-break: break-word;
+    }
+
+    .site-footer {
+      padding: 28px 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .hidden-panel {
+      display: none;
+    }
+
+    @media (max-width: 820px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-frame img {
+        height: 270px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand mono">JEREMIE<span>.KOBO</span></a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-list mono">
+          <li><a href="#home" data-nav="home" class="active">01 // home</a></li>
+          <li><a href="#expertise" data-nav="expertise">02 // expertise</a></li>
+          <li><a href="#work" data-nav="work">03 // work &amp; qa</a></li>
+          <li><a href="#experience" data-nav="experience">04 // experience</a></li>
+          <li><a href="#contact" data-nav="contact">05 // contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-bar" role="group" aria-label="Theme Switcher">
+        <button type="button" class="theme-btn active" data-theme-btn="dark-green">Dark Green</button>
+        <button type="button" class="theme-btn" data-theme-btn="light">Light</button>
+        <button type="button" class="theme-btn" data-theme-btn="blue-grey">Blue &amp; Grey</button>
+        <button type="button" class="theme-btn" id="randomThemeBtn">Random</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 01 // HOME -->
+    <section id="home" class="section-block">
+      <div class="container hero-grid">
+        <div>
+          <span class="section-tag mono">01 // CAPE TOWN, SOUTH AFRICA</span>
+          <h1>JEREMIE KOBO</h1>
+          <p class="hero-sub">
+            <strong>IT Service &amp; Technical Support Professional</strong> with hands-on experience in frontline technical support, hardware, software, and network troubleshooting, system and dashboard monitoring, incident escalation, and personal AI workflow agent design across Claude, Copilot, and Gemini.
+          </p>
+
+          <div class="cta-row">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="resume/Jeremie Kobo IT 2.pdf" download class="btn btn-secondary">Download CV (PDF)</a>
+            <a href="#triage" class="btn btn-secondary">Test Ticket Triage</a>
+          </div>
+
+          <div class="pill-list">
+            <span class="pill mono">Windows 10/11 &amp; macOS</span>
+            <span class="pill mono">Microsoft 365 &amp; Azure</span>
+            <span class="pill mono">Splunk · Grafana · Elastic</span>
+            <span class="pill mono">Jira · ServiceNow · HaloPSA</span>
+          </div>
+        </div>
+
+        <div class="visual-frame">
+          <img src="img/pic1.jpg" alt="Jeremie Kobo IT portfolio visual 1" />
+          <div class="visual-caption mono">
+            <span>IMG/PIC1.JPG</span>
+            <span>CAPE TOWN · ZA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="preview-strip">
+          <div>
+            <span class="section-tag mono" style="margin-bottom: 2px;">THEME PREVIEW WIDGET</span>
+            <p style="font-size: 0.88rem;">Switch live palettes or generate a fresh random color theme anytime.</p>
+          </div>
+          <div class="swatch-row">
+            <button type="button" class="swatch-chip" data-theme-btn="dark-green">
+              <span class="swatch-dot" style="background: #22c55e;"></span>
+              Dark + Green
+            </button>
+            <button type="button" class="swatch-chip" data-theme-btn="light">
+              <span class="swatch-dot" style="background: #ffffff;"></span>
+              White Light
+            </button>
+            <button type="button" class="swatch-chip" data-theme-btn="blue-grey">
+              <span class="swatch-dot" style="background: #60a5fa;"></span>
+              Light Blue &amp; Grey
+            </button>
+            <button type="button" class="swatch-chip" id="randomSwatchBtn">
+              <span class="swatch-dot" style="background: #f59e0b;"></span>
+              Random Theme
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 // EXPERTISE -->
+    <section id="expertise" class="section-block">
+      <div class="container">
+        <span class="section-tag mono">02 // EXPERTISE</span>
+        <h2>Technical Stack &amp; Operations</h2>
+
+        <div class="grid-3">
+          <article class="card">
+            <span class="section-tag mono">ITIL &amp; MONITORING</span>
+            <h3>Service Desk &amp; Observability</h3>
+            <p>Incident logging, prioritisation, and escalation alongside API, RPA, latency, and system dashboard monitoring.</p>
+            <div class="pill-list">
+              <span class="pill">Jira</span>
+              <span class="pill">ServiceNow</span>
+              <span class="pill">HaloPSA</span>
+              <span class="pill">Splunk</span>
+              <span class="pill">Grafana</span>
+              <span class="pill">Elastic</span>
+              <span class="pill">UiPath Orchestrator</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="section-tag mono">SYSTEMS &amp; SECURITY</span>
+            <h3>Cloud, OS &amp; Threat Awareness</h3>
+            <p>Endpoint and identity operations, phishing detection and reporting, security training rollouts, and network diagnostics.</p>
+            <div class="pill-list">
+              <span class="pill">Windows 10/11</span>
+              <span class="pill">macOS</span>
+              <span class="pill">Microsoft 365 &amp; Azure</span>
+              <span class="pill">Active Directory</span>
+              <span class="pill">Microsoft Intune</span>
+              <span class="pill">Vulnerability Scanning</span>
+              <span class="pill">RDP &amp; TeamViewer</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="section-tag mono">AI &amp; DEVELOPMENT</span>
+            <h3>AI Task Workflows &amp; Web/DB</h3>
+            <p>Structured prompting and task workflows across Claude, Copilot, and Gemini, plus database and web foundations.</p>
+            <div class="pill-list">
+              <span class="pill">Claude</span>
+              <span class="pill">Copilot</span>
+              <span class="pill">Gemini</span>
+              <span class="pill">SQL Server &amp; MySQL</span>
+              <span class="pill">HTML · CSS · JS · PHP</span>
+              <span class="pill">GitHub</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 // WORK, TECHNICAL QA & SIMULATIONS -->
+    <section id="work" class="section-block">
+      <div class="container">
+        <span class="section-tag mono">03 // WORK, TECHNICAL QA &amp; SIMULATIONS</span>
+        <h2>Technical QA Benchmarks &amp; Simulations</h2>
+
+        <div class="filter-bar" role="tablist" aria-label="Filter Work and QA">
+          <button type="button" class="filter-btn active" data-filter="all">All</button>
+          <button type="button" class="filter-btn" data-filter="qa">Technical QA</button>
+          <button type="button" class="filter-btn" data-filter="sim">Job Simulations</button>
+          <button type="button" class="filter-btn" data-filter="certs">Certifications</button>
+        </div>
+
+        <div data-panel="qa" style="margin-bottom: 24px;">
+          <div class="grid-3" style="margin-bottom: 24px;">
+            <div class="card">
+              <div class="stat-num mono">93.99%</div>
+              <h3>Overall QA Score (76 Reviews)</h3>
+              <p>Rose from <strong>92.08%</strong> in 2025 (n=36) to <strong>95.71%</strong> in 2026 (n=40), a +3.62 to +3.63 percentage point gain.</p>
+            </div>
+
+            <div class="card">
+              <div class="stat-num mono">55.3%</div>
+              <h3>Scores ≥95% &amp; 100% Streaks</h3>
+              <p>42 of 76 scored assessments hit 95%+, including <strong>21</strong> perfect 100% scores in 2026 (2026 median: 100% vs. 93% in 2025).</p>
+            </div>
+
+            <div class="card">
+              <div class="stat-num mono">3</div>
+              <h3>Scores Below 90% in 2026</h3>
+              <p>Cut in half from 6 assessments below 90% in 2025 down to 3 in 2026 across tagging, probing, and handover execution.</p>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <h3>Technical QA Evaluator Themes (76 Scored Reviews)</h3>
+              <p style="margin-bottom: 16px;">Filtered to technical service desk, diagnostic, and escalation themes.</p>
+
+              <div class="qa-theme-row">
+                <div class="qa-theme-meta"><span>Correct Tagging &amp; Categorisation</span><strong class="mono">33 / 76</strong></div>
+                <div class="bar-track"><div class="bar-fill" style="width: 43.4%;"></div></div>
+              </div>
+
+              <div class="qa-theme-row">
+                <div class="qa-theme-meta"><span>Probing &amp; Diagnostic Questions</span><strong class="mono">25 / 76</strong></div>
+                <div class="bar-track"><div class="bar-fill" style="width: 32.9%;"></div></div>
+              </div>
+
+              <div class="qa-theme-row">
+                <div class="qa-theme-meta"><span>Technical Notes &amp; Escalation Handover</span><strong class="mono">14 / 76</strong></div>
+                <div class="bar-track"><div class="bar-fill" style="width: 18.4%;"></div></div>
+              </div>
+
+              <div class="qa-theme-row">
+                <div class="qa-theme-meta"><span>Technical Accuracy &amp; Completeness</span><strong class="mono">14 / 76</strong></div>
+                <div class="bar-track"><div class="bar-fill" style="width: 18.4%;"></div></div>
+              </div>
+
+              <div class="qa-theme-row">
+                <div class="qa-theme-meta"><span>Case History Verification</span><strong class="mono">7 / 76</strong></div>
+                <div class="bar-track"><div class="bar-fill" style="width: 9.2%;"></div></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>POPIA-Redacted Technical Triage Highlights</h3>
+              <ul class="clean-list">
+                <li><strong>Fibre &amp; Network Outage Escalation (Ref: SR26****-46****):</strong> De-escalated a severe work-from-home connectivity disruption, captured reference and callback details in a private channel, recorded a concise escalation note, and handed over to second-line resolution.</li>
+                <li><strong>Device &amp; Provisioning Diagnostics (Ref: Case #149****):</strong> Collected structured technical fields—affected line, device IMEI, SIM number prefix (89), purchase date, store details, device make/model, and alternate number—for root-cause analysis.</li>
+                <li><strong>SIM Swap Fraud &amp; MNP Routing:</strong> Verified authentication and SIM swap fraud checks with fraud teams, checked porting processing windows and queues, and kept sensitive identifiers off public threads.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div data-panel="sim" class="grid-2" style="margin-bottom: 24px;">
+          <article class="card">
+            <span class="section-tag mono">FORAGE · VIRTUAL JOB SIMULATION</span>
+            <h3>Datacom — Service Desk Job Simulation</h3>
+            <ul class="clean-list">
+              <li>Completed a job simulation involving IT support and incident management for Datacom's managed services team, honing critical issue prioritisation and resolution in a high-stakes environment.</li>
+              <li>Applied ITIL processes to categorise, log, and escalate incidents in alignment with service management best practices.</li>
+              <li>Diagnosed a complex network outage issue using analytical thinking to assess impact and urgency across multiple client tickets, delivering empathetic and clear user follow-up communications.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="section-tag mono">FORAGE · VIRTUAL JOB SIMULATION</span>
+            <h3>Mastercard — Cybersecurity Job Simulation</h3>
+            <ul class="clean-list">
+              <li>Served as an analyst on Mastercard's Security Awareness Team in a job simulation environment.</li>
+              <li>Helped identify and report security threats, including phishing.</li>
+              <li>Analyzed business areas requiring stronger security training and implemented training courses and procedures for those teams.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div data-panel="certs" class="card">
+          <span class="section-tag mono">EDUCATION &amp; CERTIFICATIONS</span>
+          <h3>Certifications &amp; Academic Background</h3>
+          <div class="grid-2" style="margin-top: 12px;">
+            <ul class="clean-list">
+              <li><strong>Ethical Hacking</strong> — Cisco Networking Academy (2025)</li>
+              <li><strong>Cybersecurity Analyst</strong> — Cisco Networking Academy (2025)</li>
+              <li><strong>HaloPSA Certified (Service Desk)</strong> — HaloPSA Academy (2025)</li>
+              <li><strong>Network Technician</strong> — Cisco Networking Academy (2025)</li>
+            </ul>
+            <ul class="clean-list">
+              <li><strong>Diploma of Completion: RPA and Automation</strong> — UiPath Academy / Udemy (2021–2022)</li>
+              <li><strong>CISSP Study and Security Concepts Course</strong> — Alison (Completed)</li>
+              <li><strong>Certificate in Web Development (HTML, CSS, PHP, MySQL, GitHub)</strong> — CodeSpace Academy (2019)</li>
+              <li><strong>National Senior Certificate (Matric)</strong> — Queens Park High School (2014–2018)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interactive Ticket Triage Widget -->
+        <div id="triage" class="triage-box">
+          <span class="section-tag mono">INTERACTIVE TICKET TRIAGE WIDGET</span>
+          <h3>Simulate IT Triage, Tagging &amp; POPIA-Safe Escalation</h3>
+          <p>Select a scenario to inspect queue routing, diagnostic checklist items, and internal escalation notes.</p>
+
+          <div class="scenario-tabs" role="group" aria-label="Triage Scenarios">
+            <button type="button" class="filter-btn active" data-scenario="outage">Fibre / Network Outage</button>
+            <button type="button" class="filter-btn" data-scenario="phishing">Phishing &amp; Threat Alert</button>
+            <button type="button" class="filter-btn" data-scenario="simswap">SIM Swap / Fraud Check</button>
+            <button type="button" class="filter-btn" data-scenario="provisioning">Device / SIM Provisioning</button>
+          </div>
+
+          <div id="triageOutput" class="triage-output"></div>
+        </div>
+
+        <!-- Uploaded Images Strip -->
+        <div class="gallery-grid" aria-label="Portfolio Images">
+          <div class="gallery-item">
+            <img src="img/pic1.jpg" alt="Portfolio visual 1" />
+            <p class="mono">01 // img/pic1.jpg</p>
+          </div>
+          <div class="gallery-item">
+            <img src="img/pic2.jpg" alt="Portfolio visual 2" />
+            <p class="mono">02 // img/pic2.jpg</p>
+          </div>
+          <div class="gallery-item">
+            <img src="img/pic3.jpg" alt="Portfolio visual 3" />
+            <p class="mono">03 // img/pic3.jpg</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 // EXPERIENCE -->
+    <section id="experience" class="section-block">
+      <div class="container">
+        <span class="section-tag mono">04 // EXPERIENCE</span>
+        <h2>Work Experience</h2>
+
+        <div class="grid-3">
+          <article class="card">
+            <span class="section-tag mono">2025 – PRESENT · CAPE TOWN</span>
+            <h3>Vodapay Digital Solutions</h3>
+            <p style="font-size: 0.85rem; margin-bottom: 10px;"><strong>Call Force</strong></p>
+            <ul class="clean-list">
+              <li>Managed customer accounts and delivered technical and account support across multiple channels.</li>
+              <li>Troubleshot Vodapay issues, collaborated on escalations, and documented interactions in M2, ICAP, and Siebel.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="section-tag mono">2024 – PRESENT · CAPE TOWN</span>
+            <h3>Vodacom Social Media Community Manager</h3>
+            <p style="font-size: 0.85rem; margin-bottom: 10px;"><strong>Call Force</strong></p>
+            <ul class="clean-list">
+              <li>Aligned social support workflows with client needs, moderated communities, and logged CRM records.</li>
+              <li>Executed SIM swap fraud checks, authentication checks, and incident reporting with the fraud team.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="section-tag mono">2021 – 2022 · CAPE TOWN</span>
+            <h3>IT Technical Support</h3>
+            <p style="font-size: 0.85rem; margin-bottom: 10px;"><strong>Xib Solutions</strong></p>
+            <ul class="clean-list">
+              <li>Monitored APIs, RPA workflows, and dashboards in Splunk, Grafana, Elastic, and UiPath Orchestrator.</li>
+              <li>Ran hourly latency tests, resolved hardware/software/network issues, and escalated incidents in Jira per SOPs.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 // CONTACT -->
+    <section id="contact" class="section-block">
+      <div class="container">
+        <span class="section-tag mono">05 // CONTACT</span>
+        <h2>Get In Touch</h2>
+        <p style="margin-bottom: 24px;">Location: <strong>Cape Town, South Africa</strong>. Tap the mobile number on a phone to call directly, or click email to open your mail app.</p>
+
+        <div class="contact-box">
+          <a href="tel:+27762953941" class="contact-link">
+            <span class="contact-label mono">Cell / Mobile (Click to Call)</span>
+            <span class="contact-val mono">+27 76 295 3941</span>
+          </a>
+
+          <a href="mailto:jeremiekobo13@gmail.com?subject=IT%20Role%20%2F%20Technical%20Support%20Inquiry" class="contact-link">
+            <span class="contact-label mono">Email (Click to Email)</span>
+            <span class="contact-val">jeremiekobo13@gmail.com</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/jeremie-ephaphrase-kobo" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-label mono">LinkedIn</span>
+            <span class="contact-val">linkedin.com/in/jeremie-ephaphrase-kobo</span>
+          </a>
+
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-label mono">GitHub</span>
+            <span class="contact-val">github.com</span>
+          </a>
+        </div>
+
+        <div style="margin-top: 24px;">
+          <a href="resume/Jeremie Kobo IT 2.pdf" download class="btn btn-primary">Download CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container mono">
+      Jeremie Kobo · IT Service &amp; Technical Support Professional · Cape Town, South Africa
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const presetButtons = document.querySelectorAll('[data-theme-btn]');
+      const topThemeBtns = document.querySelectorAll('.theme-btn');
+      const randomThemeBtn = document.getElementById('randomThemeBtn');
+      const randomSwatchBtn = document.getElementById('randomSwatchBtn');
+
+      const customVars = [
+        '--bg', '--surface', '--surface-2', '--text', '--muted',
+        '--accent', '--accent-soft', '--border', '--btn-text'
+      ];
+
+      function clearCustomVars() {
+        customVars.forEach((v) => root.style.removeProperty(v));
+      }
+
+      function setActiveThemeButton(mode) {
+        topThemeBtns.forEach((b) => b.classList.remove('active'));
+        if (mode === 'random') {
+          randomThemeBtn.classList.add('active');
+        } else {
+          const match = document.querySelector('.theme-btn[data-theme-btn="' + mode + '"]');
+          if (match) match.classList.add('active');
+        }
+      }
+
+      function applyPreset(theme) {
+        clearCustomVars();
+        root.setAttribute('data-theme', theme);
+        setActiveThemeButton(theme);
+      }
+
+      function applyRandomTheme() {
+        const isDark = Math.random() > 0.45;
+        const hue = Math.floor(Math.random() * 360);
+        const accentHue = (hue + 135) % 360;
+
+        root.style.setProperty('--bg', isDark ? 'hsl(' + hue + ', 14%, 8%)' : 'hsl(' + hue + ', 24%, 96%)');
+        root.style.setProperty('--surface', isDark ? 'hsl(' + hue + ', 14%, 13%)' : 'hsl(' + hue + ', 20%, 91%)');
+        root.style.setProperty('--surface-2', isDark ? 'hsl(' + hue + ', 14%, 18%)' : 'hsl(' + hue + ', 18%, 85%)');
+        root.style.setProperty('--text', isDark ? '#f4f7f5' : '#111827');
+        root.style.setProperty('--muted', isDark ? '#a3b1a8' : '#4b5563');
+        root.style.setProperty('--accent', 'hsl(' + accentHue + ', 75%, ' + (isDark ? '52%' : '42%') + ')');
+        root.style.setProperty('--accent-soft', 'hsla(' + accentHue + ', 75%, 50%, 0.15)');
+        root.style.setProperty('--border', isDark ? 'rgba(255,255,255,0.12)' : 'rgba(17,24,39,0.12)');
+        root.style.setProperty('--btn-text', isDark ? '#08110c' : '#ffffff');
+        setActiveThemeButton('random');
+      }
+
+      presetButtons.forEach((btn) => {
+        btn.addEventListener('click', () => applyPreset(btn.getAttribute('data-theme-btn')));
+      });
+      randomThemeBtn.addEventListener('click', applyRandomTheme);
+      randomSwatchBtn.addEventListener('click', applyRandomTheme);
+
+      // Filter panels
+      const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+      const panels = document.querySelectorAll('[data-panel]');
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+          filterBtns.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          panels.forEach((panel) => {
+            const cat = panel.getAttribute('data-panel');
+            panel.classList.toggle('hidden-panel', !(filter === 'all' || filter === cat));
+          });
+        });
+      });
+
+      // Ticket Triage Widget
+      const scenarios = {
+        outage: {
+          queue: 'Queue: Second Line / Network Coverage & Fibre',
+          priority: 'Priority: High Impact (Work-From-Home)',
+          ref: 'Ref: SR26****-46****',
+          checklist: 'Move sensitive reference/callback info to a private channel; confirm outage duration and affected line.',
+          note: 'Escalated connectivity disruption affecting work-from-home duties. Reference SR26****-46**** and callback details captured privately for specialist resolution.'
+        },
+        phishing: {
+          queue: 'Queue: Security Operations & Awareness',
+          priority: 'Priority: Security Threat Triage',
+          ref: 'Ref: SEC-****',
+          checklist: 'Isolate suspicious link/sender details without clicking; log IOC indicators and review affected user group training.',
+          note: 'Reported potential phishing/social-engineering attempt. Logged threat indicators for security review and flagged team awareness follow-up.'
+        },
+        simswap: {
+          queue: 'Queue: Fraud & Authentication Escalation',
+          priority: 'Priority: High Risk / POPIA Protected',
+          ref: 'Ref: FRD-****',
+          checklist: 'Never expose account/SIM details publicly; run authentication & SIM swap checks and route to fraud specialist.',
+          note: 'Initiated SIM swap fraud and authentication verification workflow; kept sensitive identifiers in restricted channel and logged incident.'
+        },
+        provisioning: {
+          queue: 'Queue: Service Desk / Device & Provisioning',
+          priority: 'Priority: Diagnostic Intake',
+          ref: 'Ref: Case #149****',
+          checklist: 'Collect affected number, IMEI, SIM starting with 89, purchase date, store info, device make/model, and alternate number.',
+          note: 'Compiled full hardware and SIM provisioning diagnostic checklist (IMEI, ICCID prefix 89, purchase metadata) for second-line verification.'
+        }
+      };
+
+      const scenarioBtns = document.querySelectorAll('.scenario-tabs .filter-btn');
+      const triageOutput = document.getElementById('triageOutput');
+
+      function renderScenario(key) {
+        const s = scenarios[key];
+        triageOutput.innerHTML =
+          '<div class="triage-meta mono">' +
+          '<span class="triage-badge">' + s.queue + '</span>' +
+          '<span class="pill">' + s.priority + '</span>' +
+          '<span class="pill">' + s.ref + '</span>' +
+          '</div>' +
+          '<p style="margin-bottom: 10px;"><strong>Diagnostic &amp; Privacy Step:</strong> ' + s.checklist + '</p>' +
+          '<p><strong>Handover Note:</strong> ' + s.note + '</p>';
+      }
+
+      scenarioBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          scenarioBtns.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderScenario(btn.getAttribute('data-scenario'));
+        });
+      });
+
+      renderScenario('outage');
+
+      // Active nav link on scroll
+      const sections = document.querySelectorAll('main section[id]');
+      const navLinks = document.querySelectorAll('[data-nav]');
+
+      window.addEventListener('scroll', () => {
+        let current = 'home';
+        sections.forEach((sec) => {
+          if (window.scrollY >= sec.offsetTop - 160) {
+            current = sec.id;
+          }
+        });
+        navLinks.forEach((a) => {
+          a.classList.toggle('active', a.getAttribute('data-nav') === current);
+        });
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
