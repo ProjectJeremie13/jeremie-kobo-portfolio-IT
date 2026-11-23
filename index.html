@@ -1,53 +1,181 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark-green">
+<html lang="en" data-theme="morozov-noir">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeremie Kobo — IT Service &amp; Technical Support Professional</title>
+  <title>Jeremie Kobo — IT Technical Support Specialist, NOC &amp; SOC Analyst</title>
+  <meta name="description" content="Portfolio of Jeremie Kobo — IT Technical Support Specialist, Service Desk, Network Operations & Security Operations Center (SOC) Analyst based in Cape Town, South Africa." />
+
+  <!-- Editorial Typography: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & 6 DARK THEMES + LIGHT THEMES
+       ========================================================================== */
     :root {
-      --bg: #0b0e0c;
-      --surface: #131815;
-      --surface-2: #1b221e;
-      --text: #f1f5f2;
-      --muted: #9aa89f;
-      --accent: #22c55e;
-      --accent-soft: rgba(34, 197, 94, 0.14);
-      --border: rgba(255, 255, 255, 0.1);
-      --btn-text: #07130b;
+      /* Default: Theme 1 — Morozov Noir */
+      --bg-outer: #1a1c20;
+      --bg-canvas: #0d0e11;
+      --bg-surface: #13151a;
+      --bg-surface-elevated: #191c22;
+      --border-hairline: rgba(242, 242, 240, 0.11);
+      --border-strong: rgba(242, 242, 240, 0.24);
+      --text-primary: #f2f2f0;
+      --text-secondary: #b5b8bf;
+      --text-muted: #787c85;
+      --accent: #f2f2f0;
+      --accent-contrast: #0d0e11;
+      --accent-secondary: #8a8d94;
+      --status-crit: #d0654f;
+      --status-warn: #c58a45;
+      --status-ok: #4d8b55;
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+      --transition-theme: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
     }
 
-    html[data-theme="light"] {
-      --bg: #ffffff;
-      --surface: #f5f7f6;
-      --surface-2: #e9eeeb;
-      --text: #111613;
-      --muted: #526058;
-      --accent: #16a34a;
-      --accent-soft: rgba(22, 163, 74, 0.12);
-      --border: rgba(17, 22, 19, 0.12);
-      --btn-text: #ffffff;
+    /* Theme 1: Morozov Noir */
+    [data-theme="morozov-noir"] {
+      --bg-outer: #181a1f;
+      --bg-canvas: #0d0e11;
+      --bg-surface: #13151a;
+      --bg-surface-elevated: #1a1d24;
+      --border-hairline: rgba(242, 242, 240, 0.11);
+      --border-strong: rgba(242, 242, 240, 0.25);
+      --text-primary: #f2f2f0;
+      --text-secondary: #b4b7be;
+      --text-muted: #757982;
+      --accent: #f2f2f0;
+      --accent-contrast: #0d0e11;
+      --accent-secondary: #8a8d94;
     }
 
-    html[data-theme="blue-grey"] {
-      --bg: #d9e4ec;
-      --surface: #e8eff4;
-      --surface-2: #c6d5e0;
-      --text: #1e293b;
-      --muted: #475569;
-      --accent: #2563eb;
-      --accent-soft: rgba(37, 99, 235, 0.14);
-      --border: rgba(30, 41, 59, 0.14);
-      --btn-text: #ffffff;
+    /* Theme 2: Bordo & Cream */
+    [data-theme="bordo-cream"] {
+      --bg-outer: #2b080c;
+      --bg-canvas: #470d14;
+      --bg-surface: #581119;
+      --bg-surface-elevated: #6C151E;
+      --border-hairline: rgba(245, 218, 191, 0.16);
+      --border-strong: rgba(245, 218, 191, 0.34);
+      --text-primary: #F5DABF;
+      --text-secondary: #e2c1a1;
+      --text-muted: #b89172;
+      --accent: #F5DABF;
+      --accent-contrast: #470d14;
+      --accent-secondary: #0F3D3A;
     }
 
-    * {
+    /* Theme 3: Dusk Midnight */
+    [data-theme="dusk-midnight"] {
+      --bg-outer: #0a161b;
+      --bg-canvas: #10232A;
+      --bg-surface: #193039;
+      --bg-surface-elevated: #243c46;
+      --border-hairline: rgba(211, 195, 185, 0.14);
+      --border-strong: rgba(181, 136, 99, 0.42);
+      --text-primary: #D3C3B9;
+      --text-secondary: #A79E9C;
+      --text-muted: #7c888e;
+      --accent: #B58863;
+      --accent-contrast: #10232A;
+      --accent-secondary: #3D4D55;
+    }
+
+    /* Theme 4: Forest Emerald */
+    [data-theme="forest-emerald"] {
+      --bg-outer: #072220;
+      --bg-canvas: #0b2e2c;
+      --bg-surface: #0F3D3A;
+      --bg-surface-elevated: #154d49;
+      --border-hairline: rgba(245, 218, 191, 0.15);
+      --border-strong: rgba(245, 218, 191, 0.32);
+      --text-primary: #F5DABF;
+      --text-secondary: #cbb8a4;
+      --text-muted: #84a39f;
+      --accent: #F5DABF;
+      --accent-contrast: #0b2e2c;
+      --accent-secondary: #6C151E;
+    }
+
+    /* Theme 5: Copper Slate */
+    [data-theme="copper-slate"] {
+      --bg-outer: #0e0e0e;
+      --bg-canvas: #161616;
+      --bg-surface: #1e1f21;
+      --bg-surface-elevated: #27292c;
+      --border-hairline: rgba(211, 195, 185, 0.12);
+      --border-strong: rgba(181, 136, 99, 0.45);
+      --text-primary: #D3C3B9;
+      --text-secondary: #A79E9C;
+      --text-muted: #787472;
+      --accent: #B58863;
+      --accent-contrast: #161616;
+      --accent-secondary: #3D4D55;
+    }
+
+    /* Theme 6: Obsidian Terminal */
+    [data-theme="obsidian-terminal"] {
+      --bg-outer: #030304;
+      --bg-canvas: #070708;
+      --bg-surface: #0c0c0f;
+      --bg-surface-elevated: #131318;
+      --border-hairline: rgba(233, 231, 226, 0.11);
+      --border-strong: rgba(197, 138, 69, 0.42);
+      --text-primary: #e9e7e2;
+      --text-secondary: #a8a49c;
+      --text-muted: #66635d;
+      --accent: #c58a45;
+      --accent-contrast: #070708;
+      --accent-secondary: #8f887c;
+    }
+
+    /* Theme 7: Alice Blue & Charcoal Light Theme */
+    [data-theme="alice-charcoal"] {
+      --bg-outer: #dce9f5;
+      --bg-canvas: #F0F8FF;
+      --bg-surface: #e3effa;
+      --bg-surface-elevated: #d5e5f4;
+      --border-hairline: rgba(30, 37, 43, 0.14);
+      --border-strong: rgba(30, 37, 43, 0.30);
+      --text-primary: #1E252B;
+      --text-secondary: #36414B;
+      --text-muted: #566470;
+      --accent: #1E252B;
+      --accent-contrast: #F0F8FF;
+      --accent-secondary: #3D4D55;
+      --status-ok: #2e6f40;
+    }
+
+    /* Theme 8: Clean Light Mode (Crisp Off-White & Slate) */
+    [data-theme="clean-light"] {
+      --bg-outer: #e6e9ef;
+      --bg-canvas: #f8f9fb;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #eef1f6;
+      --border-hairline: rgba(17, 24, 39, 0.11);
+      --border-strong: rgba(17, 24, 39, 0.24);
+      --text-primary: #111827;
+      --text-secondary: #374151;
+      --text-muted: #6b7280;
+      --accent: #111827;
+      --accent-contrast: #ffffff;
+      --accent-secondary: #4b5563;
+      --status-ok: #256f42;
+    }
+
+    /* ==========================================================================
+       2. BASE & RESET
+       ========================================================================== */
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -55,14 +183,25 @@
 
     html {
       scroll-behavior: smooth;
+      font-size: 16px;
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      background-color: var(--bg-outer);
+      background-image:
+        radial-gradient(1200px 600px at 85% -5%, rgba(255, 255, 255, 0.04), transparent 60%),
+        radial-gradient(900px 500px at 10% 105%, rgba(255, 255, 255, 0.025), transparent 60%);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      transition: var(--transition-theme);
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--accent-contrast);
     }
 
     a {
@@ -70,998 +209,2104 @@
       text-decoration: none;
     }
 
-    .mono {
-      font-family: 'Space Mono', monospace;
+    button {
+      font-family: inherit;
+      cursor: pointer;
     }
 
-    .container {
-      max-width: 1140px;
+    /* ==========================================================================
+       3. EDITORIAL MONOLITH CONTAINER & NAVIGATION
+       ========================================================================== */
+    .monolith-frame {
+      max-width: 1320px;
       margin: 0 auto;
-      padding: 0 24px;
+      background-color: var(--bg-canvas);
+      border-left: 1px solid var(--border-hairline);
+      border-right: 1px solid var(--border-hairline);
+      min-height: 100vh;
+      position: relative;
+      box-shadow: 0 32px 96px rgba(0, 0, 0, 0.28);
+      transition: var(--transition-theme);
     }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-wrap {
+      z-index: 90;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 16px 0;
+      gap: 1rem;
+      padding: 1.15rem 2.5rem;
+      background-color: color-mix(in srgb, var(--bg-canvas) 90%, transparent);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-hairline);
     }
 
-    .brand {
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-    }
-
-    .brand span {
-      color: var(--accent);
-    }
-
-    .nav-list {
-      list-style: none;
+    .brand-mark {
       display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      font-size: 0.8rem;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--text-primary);
     }
 
-    .nav-list a {
-      color: var(--muted);
+    .brand-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
       transition: color 0.2s ease;
     }
 
-    .nav-list a:hover,
-    .nav-list a.active {
-      color: var(--accent);
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-primary);
     }
 
-    .theme-bar {
+    .header-actions {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 6px;
-      background: var(--surface);
-      padding: 4px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
+      gap: 0.65rem;
     }
 
-    .theme-btn {
-      border: none;
+    .btn-header-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 0.85rem;
       background: transparent;
-      color: var(--muted);
-      font-size: 0.74rem;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
       font-weight: 600;
-      padding: 6px 11px;
-      border-radius: 999px;
-      cursor: pointer;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       transition: all 0.2s ease;
     }
 
-    .theme-btn:hover {
-      color: var(--text);
+    .btn-header-link:hover {
+      border-color: var(--accent);
+      background: var(--bg-surface-elevated);
     }
 
-    .theme-btn.active {
-      background: var(--accent);
-      color: var(--btn-text);
-    }
-
-    .section-block {
-      padding: 84px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-tag {
-      font-size: 0.78rem;
-      color: var(--accent);
+    .btn-studio-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 10px;
-      display: block;
+      transition: all 0.2s ease;
     }
 
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 4.3rem);
-      line-height: 1.04;
-      letter-spacing: -0.03em;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    h2 {
-      font-size: clamp(1.6rem, 3.5vw, 2.35rem);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 24px;
-    }
-
-    h3 {
-      font-size: 1.12rem;
-      margin-bottom: 8px;
-    }
-
-    p {
-      color: var(--muted);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .hero-sub {
-      font-size: 1.04rem;
-      max-width: 620px;
-      margin-bottom: 24px;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 18px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.88rem;
-      cursor: pointer;
-      border: 1px solid var(--border);
-      transition: transform 0.15s ease, background-color 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
+    .btn-studio-toggle:hover {
       background: var(--accent);
-      color: var(--btn-text);
+      color: var(--accent-contrast);
       border-color: var(--accent);
     }
 
-    .btn-secondary {
-      background: var(--surface);
-      color: var(--text);
-    }
-
-    .visual-frame {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .visual-frame img {
-      display: block;
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-    }
-
-    .visual-caption {
-      padding: 12px 16px;
-      font-size: 0.76rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .preview-strip {
-      margin-top: 28px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .swatch-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .swatch-chip {
+    .swatch-indicator {
       display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--surface-2);
-      color: var(--text);
-      font-size: 0.76rem;
-      font-weight: 600;
-      cursor: pointer;
+      gap: 2px;
     }
 
-    .swatch-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
-    .pill {
-      font-size: 0.74rem;
-      padding: 5px 10px;
-      border-radius: 6px;
-      background: var(--surface-2);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-
-    .filter-btn {
-      background: var(--surface);
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    .stat-num {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--accent);
-      line-height: 1.1;
-      margin-bottom: 6px;
-    }
-
-    .bar-track {
-      height: 8px;
-      background: var(--surface-2);
-      border-radius: 999px;
-      overflow: hidden;
-      margin-top: 8px;
-    }
-
-    .bar-fill {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 999px;
-    }
-
-    .qa-theme-row {
-      margin-bottom: 15px;
-    }
-
-    .qa-theme-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.84rem;
-      margin-bottom: 4px;
-    }
-
-    .clean-list {
-      margin-top: 10px;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 0.91rem;
-    }
-
-    .clean-list li {
-      margin-bottom: 8px;
-    }
-
-    .triage-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      margin-top: 24px;
-    }
-
-    .scenario-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 14px 0 18px;
-    }
-
-    .triage-output {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px;
-      font-size: 0.9rem;
-    }
-
-    .triage-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 12px;
-      font-size: 0.78rem;
-    }
-
-    .triage-badge {
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .gallery-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
+    .swatch-indicator i {
+      width: 7px;
+      height: 7px;
+      border-radius: 1px;
       display: block;
     }
 
-    .gallery-item p {
-      padding: 10px 14px;
-      font-size: 0.78rem;
-    }
-
-    .contact-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .contact-link {
-      display: block;
-      padding: 16px;
-      border-radius: 10px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      transition: border-color 0.2s ease;
-    }
-
-    .contact-link:hover {
-      border-color: var(--accent);
-    }
-
-    .contact-label {
-      font-size: 0.74rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .contact-val {
-      font-weight: 700;
-      font-size: 0.94rem;
-      word-break: break-word;
-    }
-
-    .site-footer {
-      padding: 28px 0;
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .hidden-panel {
+    /* ==========================================================================
+       4. FLOATING THEME STUDIO DRAWER
+       ========================================================================== */
+    .theme-studio-drawer {
+      position: fixed;
+      top: 4.5rem;
+      right: max(1rem, calc((100vw - 1320px) / 2 + 1.5rem));
+      width: min(400px, calc(100vw - 2rem));
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      z-index: 120;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
       display: none;
     }
 
-    @media (max-width: 820px) {
-      .hero-grid {
+    .theme-studio-drawer.open {
+      display: block;
+      animation: fadeSlideDown 0.22s ease forwards;
+    }
+
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .studio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .studio-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .studio-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      padding: 0.2rem 0.45rem;
+    }
+
+    .studio-close:hover {
+      color: var(--text-primary);
+    }
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.55rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .theme-option {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+      padding: 0.6rem 0.7rem;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .theme-option:hover {
+      border-color: var(--border-strong);
+      color: var(--text-primary);
+    }
+
+    .theme-option.active {
+      border-color: var(--accent);
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+    }
+
+    .theme-option-name {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .theme-option-swatches {
+      display: flex;
+      gap: 4px;
+      width: 100%;
+    }
+
+    .theme-option-swatches span {
+      height: 6px;
+      flex: 1;
+      border-radius: 1px;
+      border: 1px solid rgba(128, 128, 128, 0.22);
+    }
+
+    .random-generator-box {
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .btn-randomize {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      background: var(--accent);
+      color: var(--accent-contrast);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: opacity 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-randomize:hover {
+      opacity: 0.9;
+    }
+
+    .btn-randomize:active {
+      transform: scale(0.985);
+    }
+
+    .active-palette-readout {
+      margin-top: 0.65rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-muted);
+    }
+
+    .hex-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 6px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      border-radius: 3px;
+    }
+
+    .hex-chip i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* ==========================================================================
+       5. EDITORIAL SECTION ARCHITECTURE
+       ========================================================================== */
+    .editorial-section {
+      position: relative;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 5rem 3rem 5rem 0;
+    }
+
+    .section-rail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 0.35rem;
+      user-select: none;
+    }
+
+    .rail-number {
+      font-family: var(--font-sans);
+      font-size: 2.35rem;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--text-muted);
+      opacity: 0.55;
+    }
+
+    .rail-line {
+      width: 1px;
+      height: 52px;
+      background: var(--border-strong);
+      margin: 1.15rem 0;
+    }
+
+    .rail-label {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .section-content {
+      min-width: 0;
+    }
+
+    .scroll-dots {
+      position: fixed;
+      right: max(0.85rem, calc((100vw - 1320px) / 2 + 1.1rem));
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      z-index: 80;
+    }
+
+    .scroll-dots a {
+      width: 14px;
+      height: 2px;
+      background: var(--text-muted);
+      opacity: 0.4;
+      transition: all 0.25s ease;
+      display: block;
+    }
+
+    .scroll-dots a.active,
+    .scroll-dots a:hover {
+      width: 24px;
+      background: var(--accent);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       6. HERO / 01 INTRODUCE + JK PORTRAIT REVEAL (pic4)
+       ========================================================================== */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 6.2vw, 5.1rem);
+      font-weight: 700;
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-rule {
+      width: 56px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-role {
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-bio {
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+      max-width: 58ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-secondary);
+    }
+
+    .hero-meta-strip span strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .contact-link {
+      color: var(--text-primary);
+      text-decoration: underline;
+      text-decoration-color: var(--border-strong);
+      text-underline-offset: 3px;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.8rem 1.4rem;
+      background: var(--accent);
+      color: var(--accent-contrast);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.8rem 1.35rem;
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background: var(--bg-surface-elevated);
+    }
+
+    /* JK Monogram Card that reveals pic4 on Hover / Tap */
+    .portrait-card {
+      position: relative;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .portrait-media {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 35%, var(--bg-surface-elevated), var(--bg-canvas));
+    }
+
+    .jk-monogram-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      transition: opacity 0.42s ease, transform 0.45s ease;
+    }
+
+    .portrait-card:hover .jk-monogram-layer,
+    .portrait-card.revealed .jk-monogram-layer {
+      opacity: 0;
+      transform: scale(1.04);
+      pointer-events: none;
+    }
+
+    .face-reveal-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0;
+      transform: scale(1.03);
+      transition: opacity 0.45s ease, transform 0.55s ease;
+    }
+
+    .portrait-card:hover .face-reveal-layer,
+    .portrait-card.revealed .face-reveal-layer {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .face-reveal-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      display: block;
+    }
+
+    .portrait-caption {
+      padding: 0.85rem 1.1rem;
+      border-top: 1px solid var(--border-hairline);
+      background: var(--bg-surface);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      z-index: 4;
+    }
+
+    .status-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-primary);
+    }
+
+    .status-live::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--status-ok);
+      box-shadow: 0 0 8px var(--status-ok);
+    }
+
+    /* ==========================================================================
+       7. SECTION HEADINGS
+       ========================================================================== */
+    .section-header-block {
+      margin-bottom: 2.75rem;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.85rem, 3.4vw, 2.65rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      color: var(--text-primary);
+    }
+
+    /* ==========================================================================
+       8. 02 WORK & EXPERIENCE TIMELINE
+       ========================================================================== */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 2rem;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .exp-card:hover {
+      border-color: var(--border-strong);
+    }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .exp-role {
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .exp-company {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-top: 0.2rem;
+    }
+
+    .exp-period {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.3rem 0.65rem;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      background: var(--bg-canvas);
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .exp-bullets li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.93rem;
+      color: var(--text-secondary);
+    }
+
+    .exp-bullets li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--font-mono);
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1.15rem;
+    }
+
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      padding: 0.22rem 0.6rem;
+      border-radius: 3px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================================================
+       9. 03 FEATURED PROJECTS
+       ========================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .project-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card.featured-kobo {
+      border-color: var(--border-strong);
+    }
+
+    .project-viewport {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: #090a0d;
+      border-bottom: 1px solid var(--border-hairline);
+      overflow: hidden;
+      display: block;
+    }
+
+    .project-cover-layer,
+    .project-hover-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.35s ease, transform 0.45s ease;
+    }
+
+    .project-cover-layer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.06), transparent 68%),
+        linear-gradient(165deg, #14171d 0%, #090a0d 100%);
+      z-index: 2;
+    }
+
+    .project-viewport:hover .project-cover-layer {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .project-hover-layer {
+      opacity: 0;
+      z-index: 3;
+      background: #090a0d;
+    }
+
+    .project-viewport:hover .project-hover-layer {
+      opacity: 1;
+    }
+
+    .cover-title-overlay {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #f4f3ef;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75);
+    }
+
+    .cover-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      background: rgba(15, 17, 22, 0.65);
+      backdrop-filter: blur(6px);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #f4f3ef;
+    }
+
+    .hover-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      z-index: 5;
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: rgba(7, 7, 8, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #e9e7e2;
+    }
+
+    .project-body {
+      padding: 1.4rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-index-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+    }
+
+    .status-tag {
+      font-size: 0.6rem;
+      padding: 2px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--border-strong);
+      color: var(--text-secondary);
+    }
+
+    .status-tag.live {
+      border-color: var(--status-ok);
+      color: var(--status-ok);
+    }
+
+    .project-desc {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.15rem;
+      flex: 1;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-footer {
+      padding-top: 0.95rem;
+      border-top: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .btn-launch-live {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.62rem 0.9rem;
+      background: var(--accent);
+      color: var(--accent-contrast);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn-launch-live:hover {
+      opacity: 0.88;
+    }
+
+    .btn-report-link {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.58rem 0.9rem;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .btn-report-link:hover:not(.disabled) {
+      background: var(--bg-surface-elevated);
+      border-color: var(--accent);
+    }
+
+    .btn-report-link.disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       10. 04 CERTIFICATIONS, JOB SIMULATIONS & EDUCATION
+       ========================================================================== */
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .cred-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+    }
+
+    .cred-panel-title {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .cert-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+    }
+
+    .cert-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .cert-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .cert-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .cert-issuer {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+    }
+
+    .cert-detail {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 0.35rem;
+      line-height: 1.5;
+    }
+
+    .cert-year {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      white-space: nowrap;
+      padding: 2px 7px;
+      border: 1px solid var(--border-hairline);
+      border-radius: 3px;
+      background: var(--bg-canvas);
+    }
+
+    /* ==========================================================================
+       11. FOOTER & TOAST NOTIFICATION
+       ========================================================================== */
+    .site-footer {
+      padding: 2.25rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .toast-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--accent);
+      padding: 0.7rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .toast-banner.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ==========================================================================
+       12. RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1080px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .scroll-dots {
+        display: none;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .editorial-section {
+        grid-template-columns: 1fr;
+        padding: 3.5rem 1.75rem;
+      }
+      .section-rail {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.75rem;
+      }
+      .rail-line {
+        width: 36px;
+        height: 1px;
+        margin: 0;
+      }
+      .rail-label {
+        writing-mode: horizontal-tb;
+        transform: none;
+      }
+      .hero-grid,
+      .credentials-grid {
         grid-template-columns: 1fr;
       }
+      .portrait-card {
+        max-width: 360px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .site-header {
+        padding: 1rem 1.5rem;
+      }
+    }
 
-      .visual-frame img {
-        height: 270px;
+    @media (max-width: 640px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .site-footer {
+        padding: 2rem 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="#home" class="brand mono">JEREMIE<span>.KOBO</span></a>
 
-      <nav aria-label="Primary Navigation">
-        <ul class="nav-list mono">
-          <li><a href="#home" data-nav="home" class="active">01 // home</a></li>
-          <li><a href="#expertise" data-nav="expertise">02 // expertise</a></li>
-          <li><a href="#work" data-nav="work">03 // work &amp; qa</a></li>
-          <li><a href="#experience" data-nav="experience">04 // experience</a></li>
-          <li><a href="#contact" data-nav="contact">05 // contact</a></li>
-        </ul>
+  <!-- Right-side Morozov Navigation Progress Dots -->
+  <nav class="scroll-dots" aria-label="Section indicators">
+    <a href="#introduce" class="active" data-dot="introduce" title="01 Introduce"></a>
+    <a href="#experience" data-dot="experience" title="02 Experience"></a>
+    <a href="#projects" data-dot="projects" title="03 Projects"></a>
+    <a href="#credentials" data-dot="credentials" title="04 Credentials"></a>
+  </nav>
+
+  <!-- Floating Theme Studio Drawer -->
+  <aside id="themeStudioDrawer" class="theme-studio-drawer" aria-label="Theme Studio">
+    <div class="studio-header">
+      <span class="studio-title">Theme Studio · Dark, Light &amp; Random</span>
+      <button id="closeStudioBtn" class="studio-close" aria-label="Close Theme Studio">✕</button>
+    </div>
+
+    <div class="theme-grid" id="themePresetGrid">
+      <button class="theme-option active" data-set-theme="morozov-noir">
+        <span class="theme-option-name">01 Morozov Noir</span>
+        <span class="theme-option-swatches">
+          <span style="background:#0d0e11"></span>
+          <span style="background:#1a1d24"></span>
+          <span style="background:#f2f2f0"></span>
+        </span>
+      </button>
+
+      <button class="theme-option" data-set-theme="bordo-cream">
+        <span class="theme-option-name">02 Bordo &amp; Cream</span>
+        <span class="theme-option-swatches">
+          <span style="background:#6C151E"></span>
+          <span style="background:#0F3D3A"></span>
+          <span style="background:#F5DABF"></span>
+        </span>
+      </button>
+
+      <button class="theme-option" data-set-theme="dusk-midnight">
+        <span class="theme-option-name">03 Dusk Midnight</span>
+        <span class="theme-option-swatches">
+          <span style="background:#10232A"></span>
+          <span style="background:#3D4D55"></span>
+          <span style="background:#B58863"></span>
+        </span>
+      </button>
+
+      <button class="theme-option" data-set-theme="forest-emerald">
+        <span class="theme-option-name">04 Forest Emerald</span>
+        <span class="theme-option-swatches">
+          <span style="background:#0F3D3A"></span>
+          <span style="background:#6C151E"></span>
+          <span style="background:#F5DABF"></span>
+        </span>
+      </button>
+
+      <button class="theme-option" data-set-theme="copper-slate">
+        <span class="theme-option-name">05 Copper Slate</span>
+        <span class="theme-option-swatches">
+          <span style="background:#161616"></span>
+          <span style="background:#B58863"></span>
+          <span style="background:#D3C3B9"></span>
+        </span>
+      </button>
+
+      <button class="theme-option" data-set-theme="obsidian-terminal">
+        <span class="theme-option-name">06 Obsidian SIEM</span>
+        <span class="theme-option-swatches">
+          <span style="background:#070708"></span>
+          <span style="background:#c58a45"></span>
+          <span style="background:#e9e7e2"></span>
+        </span>
+      </button>
+
+      <button class="theme-option" data-set-theme="alice-charcoal">
+        <span class="theme-option-name">07 Alice Blue Light</span>
+        <span class="theme-option-swatches">
+          <span style="background:#F0F8FF"></span>
+          <span style="background:#d5e5f4"></span>
+          <span style="background:#1E252B"></span>
+        </span>
+      </button>
+
+      <button class="theme-option" data-set-theme="clean-light">
+        <span class="theme-option-name">08 Crisp Light Theme</span>
+        <span class="theme-option-swatches">
+          <span style="background:#f8f9fb"></span>
+          <span style="background:#ffffff"></span>
+          <span style="background:#111827"></span>
+        </span>
+      </button>
+    </div>
+
+    <div class="random-generator-box">
+      <button id="randomizeThemeBtn" class="btn-randomize">
+        <span>✦</span>
+        <span>Generate Random Swatch Theme</span>
+      </button>
+      <div id="activePaletteReadout" class="active-palette-readout"></div>
+    </div>
+  </aside>
+
+  <!-- Main Monolith Frame -->
+  <div class="monolith-frame">
+    <!-- Sticky Editorial Header -->
+    <header class="site-header">
+      <a href="#introduce" class="brand-mark">
+        <span class="brand-dot"></span>
+        <span>JEREMIE KOBO</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#introduce" class="active">01 Introduce</a>
+        <a href="#experience">02 Experience</a>
+        <a href="#projects">03 Projects</a>
+        <a href="#credentials">04 Credentials</a>
       </nav>
 
-      <div class="theme-bar" role="group" aria-label="Theme Switcher">
-        <button type="button" class="theme-btn active" data-theme-btn="dark-green">Dark Green</button>
-        <button type="button" class="theme-btn" data-theme-btn="light">Light</button>
-        <button type="button" class="theme-btn" data-theme-btn="blue-grey">Blue &amp; Grey</button>
-        <button type="button" class="theme-btn" id="randomThemeBtn">Random</button>
+      <div class="header-actions">
+        <a href="https://kobosec-siem.ai.studio" target="_blank" rel="noopener noreferrer" class="btn-header-link">Explore KoboSEC ↗</a>
+        <a href="https://github.com/ProjectJeremie13" target="_blank" rel="noopener noreferrer" class="btn-header-link">GitHub ↗</a>
+        <button id="openStudioBtn" class="btn-studio-toggle" aria-expanded="false" aria-controls="themeStudioDrawer">
+          <span class="swatch-indicator" id="headerSwatchPreview">
+            <i style="background:#0d0e11"></i>
+            <i style="background:#8a8d94"></i>
+            <i style="background:#f2f2f0"></i>
+          </span>
+          <span>Theme Studio</span>
+        </button>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <!-- 01 // HOME -->
-    <section id="home" class="section-block">
-      <div class="container hero-grid">
-        <div>
-          <span class="section-tag mono">01 // CAPE TOWN, SOUTH AFRICA</span>
-          <h1>JEREMIE KOBO</h1>
-          <p class="hero-sub">
-            <strong>IT Service &amp; Technical Support Professional</strong> with hands-on experience in frontline technical support, hardware, software, and network troubleshooting, system and dashboard monitoring, incident escalation, and personal AI workflow agent design across Claude, Copilot, and Gemini.
-          </p>
-
-          <div class="cta-row">
-            <a href="#contact" class="btn btn-primary">Get In Touch</a>
-            <a href="resume/Jeremie Kobo IT 2.pdf" download class="btn btn-secondary">Download CV (PDF)</a>
-            <a href="#triage" class="btn btn-secondary">Test Ticket Triage</a>
-          </div>
-
-          <div class="pill-list">
-            <span class="pill mono">Windows 10/11 &amp; macOS</span>
-            <span class="pill mono">Microsoft 365 &amp; Azure</span>
-            <span class="pill mono">Splunk · Grafana · Elastic</span>
-            <span class="pill mono">Jira · ServiceNow · HaloPSA</span>
-          </div>
+    <main>
+      <!-- ======================================================================
+           SECTION 01: INTRODUCE (HERO)
+           ====================================================================== -->
+      <section id="introduce" class="editorial-section">
+        <div class="section-rail">
+          <span class="rail-number">01</span>
+          <span class="rail-line"></span>
+          <span class="rail-label">Introduce</span>
         </div>
 
-        <div class="visual-frame">
-          <img src="img/pic1.jpg" alt="Jeremie Kobo IT portfolio visual 1" />
-          <div class="visual-caption mono">
-            <span>IMG/PIC1.JPG</span>
-            <span>CAPE TOWN · ZA</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="preview-strip">
-          <div>
-            <span class="section-tag mono" style="margin-bottom: 2px;">THEME PREVIEW WIDGET</span>
-            <p style="font-size: 0.88rem;">Switch live palettes or generate a fresh random color theme anytime.</p>
-          </div>
-          <div class="swatch-row">
-            <button type="button" class="swatch-chip" data-theme-btn="dark-green">
-              <span class="swatch-dot" style="background: #22c55e;"></span>
-              Dark + Green
-            </button>
-            <button type="button" class="swatch-chip" data-theme-btn="light">
-              <span class="swatch-dot" style="background: #ffffff;"></span>
-              White Light
-            </button>
-            <button type="button" class="swatch-chip" data-theme-btn="blue-grey">
-              <span class="swatch-dot" style="background: #60a5fa;"></span>
-              Light Blue &amp; Grey
-            </button>
-            <button type="button" class="swatch-chip" id="randomSwatchBtn">
-              <span class="swatch-dot" style="background: #f59e0b;"></span>
-              Random Theme
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 02 // EXPERTISE -->
-    <section id="expertise" class="section-block">
-      <div class="container">
-        <span class="section-tag mono">02 // EXPERTISE</span>
-        <h2>Technical Stack &amp; Operations</h2>
-
-        <div class="grid-3">
-          <article class="card">
-            <span class="section-tag mono">ITIL &amp; MONITORING</span>
-            <h3>Service Desk &amp; Observability</h3>
-            <p>Incident logging, prioritisation, and escalation alongside API, RPA, latency, and system dashboard monitoring.</p>
-            <div class="pill-list">
-              <span class="pill">Jira</span>
-              <span class="pill">ServiceNow</span>
-              <span class="pill">HaloPSA</span>
-              <span class="pill">Splunk</span>
-              <span class="pill">Grafana</span>
-              <span class="pill">Elastic</span>
-              <span class="pill">UiPath Orchestrator</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <span class="section-tag mono">SYSTEMS &amp; SECURITY</span>
-            <h3>Cloud, OS &amp; Threat Awareness</h3>
-            <p>Endpoint and identity operations, phishing detection and reporting, security training rollouts, and network diagnostics.</p>
-            <div class="pill-list">
-              <span class="pill">Windows 10/11</span>
-              <span class="pill">macOS</span>
-              <span class="pill">Microsoft 365 &amp; Azure</span>
-              <span class="pill">Active Directory</span>
-              <span class="pill">Microsoft Intune</span>
-              <span class="pill">Vulnerability Scanning</span>
-              <span class="pill">RDP &amp; TeamViewer</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <span class="section-tag mono">AI &amp; DEVELOPMENT</span>
-            <h3>AI Task Workflows &amp; Web/DB</h3>
-            <p>Structured prompting and task workflows across Claude, Copilot, and Gemini, plus database and web foundations.</p>
-            <div class="pill-list">
-              <span class="pill">Claude</span>
-              <span class="pill">Copilot</span>
-              <span class="pill">Gemini</span>
-              <span class="pill">SQL Server &amp; MySQL</span>
-              <span class="pill">HTML · CSS · JS · PHP</span>
-              <span class="pill">GitHub</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 // WORK, TECHNICAL QA & SIMULATIONS -->
-    <section id="work" class="section-block">
-      <div class="container">
-        <span class="section-tag mono">03 // WORK, TECHNICAL QA &amp; SIMULATIONS</span>
-        <h2>Technical QA Benchmarks &amp; Simulations</h2>
-
-        <div class="filter-bar" role="tablist" aria-label="Filter Work and QA">
-          <button type="button" class="filter-btn active" data-filter="all">All</button>
-          <button type="button" class="filter-btn" data-filter="qa">Technical QA</button>
-          <button type="button" class="filter-btn" data-filter="sim">Job Simulations</button>
-          <button type="button" class="filter-btn" data-filter="certs">Certifications</button>
-        </div>
-
-        <div data-panel="qa" style="margin-bottom: 24px;">
-          <div class="grid-3" style="margin-bottom: 24px;">
-            <div class="card">
-              <div class="stat-num mono">93.99%</div>
-              <h3>Overall QA Score (76 Reviews)</h3>
-              <p>Rose from <strong>92.08%</strong> in 2025 (n=36) to <strong>95.71%</strong> in 2026 (n=40), a +3.62 to +3.63 percentage point gain.</p>
-            </div>
-
-            <div class="card">
-              <div class="stat-num mono">55.3%</div>
-              <h3>Scores ≥95% &amp; 100% Streaks</h3>
-              <p>42 of 76 scored assessments hit 95%+, including <strong>21</strong> perfect 100% scores in 2026 (2026 median: 100% vs. 93% in 2025).</p>
-            </div>
-
-            <div class="card">
-              <div class="stat-num mono">3</div>
-              <h3>Scores Below 90% in 2026</h3>
-              <p>Cut in half from 6 assessments below 90% in 2025 down to 3 in 2026 across tagging, probing, and handover execution.</p>
-            </div>
-          </div>
-
-          <div class="grid-2">
-            <div class="card">
-              <h3>Technical QA Evaluator Themes (76 Scored Reviews)</h3>
-              <p style="margin-bottom: 16px;">Filtered to technical service desk, diagnostic, and escalation themes.</p>
-
-              <div class="qa-theme-row">
-                <div class="qa-theme-meta"><span>Correct Tagging &amp; Categorisation</span><strong class="mono">33 / 76</strong></div>
-                <div class="bar-track"><div class="bar-fill" style="width: 43.4%;"></div></div>
+        <div class="section-content">
+          <div class="hero-grid">
+            <div>
+              <div class="hero-kicker">
+                <span>Cape Town, Western Cape · South Africa</span>
               </div>
 
-              <div class="qa-theme-row">
-                <div class="qa-theme-meta"><span>Probing &amp; Diagnostic Questions</span><strong class="mono">25 / 76</strong></div>
-                <div class="bar-track"><div class="bar-fill" style="width: 32.9%;"></div></div>
+              <h1 class="hero-title">Jeremie Kobo</h1>
+              <div class="hero-rule"></div>
+
+              <p class="hero-role">
+                IT Technical Support Specialist | Service Desk, NOC &amp; SOC Analyst
+              </p>
+
+              <p class="hero-bio">
+                Detail-oriented IT Technical Support Specialist and aspiring SOC Analyst based in Cape Town with hands-on experience in hardware, software, and network troubleshooting, log and dashboard monitoring (Splunk, Grafana, Elastic), ITIL incident escalation (HaloPSA, Jira, ServiceNow), and identity/cloud administration (Active Directory, Microsoft 365, Azure). Combines frontline operational support and authentication/fraud checks with structured AI workflows and deployed web projects to improve triage speed, documentation accuracy, and operational visibility.
+              </p>
+
+              <div class="hero-meta-strip">
+                <span><strong>BASE:</strong> Cape Town, ZA</span>
+                <span>
+                  <strong>EMAIL:</strong>
+                  <a href="mailto:jeremiekobo13@gmail.com?subject=IT%20Opportunity%20%E2%80%94%20Jeremie%20Kobo" class="contact-link">jeremiekobo13@gmail.com</a>
+                </span>
+                <span>
+                  <strong>TEL:</strong>
+                  <a href="tel:+27762953941" class="contact-link">+27 76 295 3941</a>
+                </span>
               </div>
 
-              <div class="qa-theme-row">
-                <div class="qa-theme-meta"><span>Technical Notes &amp; Escalation Handover</span><strong class="mono">14 / 76</strong></div>
-                <div class="bar-track"><div class="bar-fill" style="width: 18.4%;"></div></div>
-              </div>
-
-              <div class="qa-theme-row">
-                <div class="qa-theme-meta"><span>Technical Accuracy &amp; Completeness</span><strong class="mono">14 / 76</strong></div>
-                <div class="bar-track"><div class="bar-fill" style="width: 18.4%;"></div></div>
-              </div>
-
-              <div class="qa-theme-row">
-                <div class="qa-theme-meta"><span>Case History Verification</span><strong class="mono">7 / 76</strong></div>
-                <div class="bar-track"><div class="bar-fill" style="width: 9.2%;"></div></div>
+              <div class="hero-cta-row">
+                <a
+                  href="resume/Jeremie Kobo IT 2.pdf"
+                  download="Jeremie Kobo IT 2.pdf"
+                  id="downloadResumeLink"
+                  class="btn-primary"
+                >
+                  <span>↓</span>
+                  <span>Download Resume (PDF)</span>
+                </a>
+                <a href="https://kobosec-siem.ai.studio" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                  <span>Explore KoboSEC</span>
+                  <span>↗</span>
+                </a>
+                <a href="https://github.com/ProjectJeremie13" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                  <span>GitHub</span>
+                  <span>↗</span>
+                </a>
               </div>
             </div>
 
-            <div class="card">
-              <h3>POPIA-Redacted Technical Triage Highlights</h3>
-              <ul class="clean-list">
-                <li><strong>Fibre &amp; Network Outage Escalation (Ref: SR26****-46****):</strong> De-escalated a severe work-from-home connectivity disruption, captured reference and callback details in a private channel, recorded a concise escalation note, and handed over to second-line resolution.</li>
-                <li><strong>Device &amp; Provisioning Diagnostics (Ref: Case #149****):</strong> Collected structured technical fields—affected line, device IMEI, SIM number prefix (89), purchase date, store details, device make/model, and alternate number—for root-cause analysis.</li>
-                <li><strong>SIM Swap Fraud &amp; MNP Routing:</strong> Verified authentication and SIM swap fraud checks with fraud teams, checked porting processing windows and queues, and kept sensitive identifiers off public threads.</li>
+            <!-- JK Monogram Card — Hovering or Tapping reveals img/pic4 -->
+            <figure class="portrait-card" id="jkPortraitCard" title="Hover or tap to reveal Jeremie Kobo's portrait">
+              <div class="portrait-media">
+                <!-- Default Architectural JK Monogram Layer -->
+                <div class="jk-monogram-layer">
+                  <svg style="width:100%; height:100%;" viewBox="0 0 400 500" role="img" aria-label="Jeremie Kobo Architectural Monogram">
+                    <defs>
+                      <pattern id="heroGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+                        <path d="M24 0H0V24" fill="none" stroke="rgba(128,128,128,0.14)" stroke-width="1" />
+                      </pattern>
+                    </defs>
+                    <rect width="400" height="500" fill="var(--bg-surface)" />
+                    <rect width="400" height="500" fill="url(#heroGrid)" />
+                    <circle cx="200" cy="210" r="118" fill="none" stroke="var(--border-strong)" stroke-width="1" />
+                    <circle cx="200" cy="210" r="82" fill="none" stroke="var(--accent)" stroke-opacity="0.45" stroke-dasharray="4 4" stroke-width="1" />
+                    <text x="200" y="226" text-anchor="middle" fill="var(--text-primary)" font-family="Inter, sans-serif" font-size="64" font-weight="700" letter-spacing="-3">JK</text>
+                    <text x="200" y="372" text-anchor="middle" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="3">SOC // NOC // IT OPS</text>
+                    <text x="200" y="394" text-anchor="middle" fill="var(--text-muted)" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2">HOVER TO REVEAL PROFILE</text>
+                  </svg>
+                </div>
+
+                <!-- Hover-Revealed Portrait Layer (img/pic4) -->
+                <div class="face-reveal-layer">
+                  <img
+                    src="img/pic4.jpg"
+                    alt="Jeremie Kobo"
+                    data-ext-index="0"
+                    onerror="
+                      const exts = ['img/pic4.jpg','img/pic4.png','img/pic4.jpeg','img/pic4.webp'];
+                      let i = Number(this.dataset.extIndex || 0) + 1;
+                      if (i < exts.length) { this.dataset.extIndex = i; this.src = exts[i]; }
+                      else { this.style.display = 'none'; }
+                    "
+                  />
+                </div>
+              </div>
+              <figcaption class="portrait-caption">
+                <span class="status-live">Jeremie Kobo · Cape Town</span>
+                <span>01 // ID</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SECTION 02: WORK & EXPERIENCE
+           ====================================================================== -->
+      <section id="experience" class="editorial-section">
+        <div class="section-rail">
+          <span class="rail-number">02</span>
+          <span class="rail-line"></span>
+          <span class="rail-label">Experience</span>
+        </div>
+
+        <div class="section-content">
+          <div class="section-header-block">
+            <div class="section-eyebrow">Operational History · Production Support &amp; Fraud Triage</div>
+            <h2 class="section-title">Work &amp; Experience</h2>
+          </div>
+
+          <div class="experience-list">
+            <!-- Role 1 -->
+            <article class="exp-card">
+              <div class="exp-top">
+                <div>
+                  <h3 class="exp-role">Vodapay Digital Solutions Support</h3>
+                  <div class="exp-company">Call Force · Cape Town, Western Cape, South Africa</div>
+                </div>
+                <span class="exp-period">2025 – Present</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Troubleshoot and resolve technical and account issues across Vodapay products and services using structured analytical problem-solving.</li>
+                <li>Coordinate with internal teams on escalated and complex cases and log accurate resolutions and feedback in CRM platforms (M2, ICAP, Siebel).</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="tech-pill">M2</span>
+                <span class="tech-pill">ICAP</span>
+                <span class="tech-pill">Siebel CRM</span>
+                <span class="tech-pill">Digital Wallet Troubleshooting</span>
+                <span class="tech-pill">Incident Escalation</span>
+              </div>
+            </article>
+
+            <!-- Role 2 -->
+            <article class="exp-card">
+              <div class="exp-top">
+                <div>
+                  <h3 class="exp-role">Vodacom Social Media Community Manager</h3>
+                  <div class="exp-company">Call Force · Cape Town, Western Cape, South Africa</div>
+                </div>
+                <span class="exp-period">2024 – 2026</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Moderate online communities and resolve customer inquiries across chat and social channels while logging interactions in CRM systems.</li>
+                <li>Perform SIM swap fraud checks, authentication checks, and incident reporting alongside Vodacom's fraud team while aligning workflows with operational policies.</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="tech-pill">Sprinklr</span>
+                <span class="tech-pill">SIM Swap Fraud Checks</span>
+                <span class="tech-pill">Identity Authentication</span>
+                <span class="tech-pill">Fraud Escalation</span>
+                <span class="tech-pill">Multichannel Triage</span>
+              </div>
+            </article>
+
+            <!-- Role 3 -->
+            <article class="exp-card">
+              <div class="exp-top">
+                <div>
+                  <h3 class="exp-role">IT Technical Support</h3>
+                  <div class="exp-company">Xib Solutions · Cape Town, Western Cape, South Africa</div>
+                </div>
+                <span class="exp-period">2021 – 2022</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Monitored APIs, RPA workflows, and system dashboards using Splunk, Grafana, Elastic, and UiPath Orchestrator.</li>
+                <li>Troubleshot hardware, software, and network issues, executed hourly latency tests, analyzed system performance, and handled incident logging and escalation in Jira following SOPs.</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="tech-pill">Splunk</span>
+                <span class="tech-pill">Grafana</span>
+                <span class="tech-pill">Elastic</span>
+                <span class="tech-pill">UiPath Orchestrator</span>
+                <span class="tech-pill">Jira</span>
+                <span class="tech-pill">API Latency Monitoring</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SECTION 03: FEATURED PROJECTS
+           ====================================================================== -->
+      <section id="projects" class="editorial-section">
+        <div class="section-rail">
+          <span class="rail-number">03</span>
+          <span class="rail-line"></span>
+          <span class="rail-label">Projects</span>
+        </div>
+
+        <div class="section-content">
+          <div class="section-header-block">
+            <div class="section-eyebrow">Systems Engineering &amp; Security Tooling · Explore Live App &amp; Report</div>
+            <h2 class="section-title">Featured Projects</h2>
+          </div>
+
+          <div class="projects-grid">
+            <!-- PROJECT 01 -->
+            <article class="project-card" data-project="project-01">
+              <div class="project-viewport" id="viewport-p1" title="Hover to shuffle preview">
+                <div class="project-cover-layer">
+                  <div class="cover-title-overlay">Operational Knowledge &amp; QA Ecosystem</div>
+                  <span class="cover-pill-btn">UPDATING SOON →</span>
+                </div>
+                <div class="project-hover-layer" id="hover-layer-p1"></div>
+                <span class="hover-badge" id="badge-p1">TEMPLATE // SLOT 01</span>
+              </div>
+
+              <div class="project-body">
+                <div class="project-index-line">
+                  <span>01 // Operational Knowledge &amp; QA</span>
+                  <span class="status-tag">Updating Soon</span>
+                </div>
+                <p class="project-desc">
+                  Multi-view operational workspace with case building, playbooks, alert/outage matching, verification/training workflows, work notes, and real-time QA spot-check and gap tracking.
+                </p>
+                <div class="project-stack">
+                  <span class="tech-pill">Case Building</span>
+                  <span class="tech-pill">Playbooks</span>
+                  <span class="tech-pill">QA Gap Tracking</span>
+                </div>
+                <div class="project-footer">
+                  <span class="btn-report-link disabled" aria-disabled="true">
+                    <span>⏳</span>
+                    <span>Report (Updating Soon)</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 02: KOBOSEC SIEM -->
+            <article class="project-card featured-kobo" id="koboProjectCard" data-project="kobosec">
+              <a
+                href="https://kobosec-siem.ai.studio"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-viewport"
+                id="viewport-kobosec"
+                title="Click to explore https://kobosec-siem.ai.studio · Hover to randomize dashboard views"
+              >
+                <div class="project-cover-layer">
+                  <div class="cover-title-overlay">KoboSEC SIEM</div>
+                  <span class="cover-pill-btn">EXPLORE KOBOSEC ↗</span>
+                </div>
+
+                <div class="project-hover-layer" id="hover-layer-kobosec"></div>
+                <span class="hover-badge" id="badge-kobosec">SCREENSHOT 1/3 · CLICK TO EXPLORE</span>
+              </a>
+
+              <div class="project-body">
+                <div class="project-index-line">
+                  <a href="https://kobosec-siem.ai.studio" target="_blank" rel="noopener noreferrer">02 // KoboSEC SIEM ↗</a>
+                  <span class="status-tag live">Live App</span>
+                </div>
+                <p class="project-desc">
+                  Simulated SOC &amp; Service Desk SIEM platform (INC / SR) featuring 3-second synthetic telemetry monitoring (WAN Throughput &amp; Failed Logins/min), 6 network segments, scenario injection (Credential Stuffing, Bandwidth Hog, ISP Latency), forensic/resolution labs, and structured case reporting.
+                </p>
+                <div class="project-stack">
+                  <span class="tech-pill">SIEM Telemetry</span>
+                  <span class="tech-pill">SOC Triage</span>
+                  <span class="tech-pill">Incident Labs</span>
+                  <span class="tech-pill">Theme Studio</span>
+                </div>
+                <div class="project-footer">
+                  <a href="https://kobosec-siem.ai.studio" target="_blank" rel="noopener noreferrer" class="btn-launch-live">
+                    <span>Explore KoboSEC</span>
+                    <span>↗</span>
+                  </a>
+                  <a
+                    href="https://projectjeremie13.github.io/KoboSEC/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-report-link"
+                    title="Open KoboSEC Project Report"
+                  >
+                    <span>📄</span>
+                    <span>Report</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 03 -->
+            <article class="project-card" data-project="project-03">
+              <div class="project-viewport" id="viewport-p3" title="Hover to shuffle preview">
+                <div class="project-cover-layer">
+                  <div class="cover-title-overlay">Personal AI Workflow Agent Design</div>
+                  <span class="cover-pill-btn">UPDATING SOON →</span>
+                </div>
+                <div class="project-hover-layer" id="hover-layer-p3"></div>
+                <span class="hover-badge" id="badge-p3">TEMPLATE // SLOT 03</span>
+              </div>
+
+              <div class="project-body">
+                <div class="project-index-line">
+                  <span>03 // AI Workflow Agent Design</span>
+                  <span class="status-tag">Updating Soon</span>
+                </div>
+                <p class="project-desc">
+                  Structured operational prompts and task workflows across Claude, Copilot, and Gemini to organize operational notes, structure troubleshooting steps, and streamline support documentation.
+                </p>
+                <div class="project-stack">
+                  <span class="tech-pill">Claude</span>
+                  <span class="tech-pill">Copilot</span>
+                  <span class="tech-pill">Gemini</span>
+                </div>
+                <div class="project-footer">
+                  <span class="btn-report-link disabled" aria-disabled="true">
+                    <span>⏳</span>
+                    <span>Report (Updating Soon)</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SECTION 04: JOB SIMULATIONS, CERTIFICATIONS & EDUCATION
+           ====================================================================== -->
+      <section id="credentials" class="editorial-section">
+        <div class="section-rail">
+          <span class="rail-number">04</span>
+          <span class="rail-line"></span>
+          <span class="rail-label">Credentials</span>
+        </div>
+
+        <div class="section-content">
+          <div class="section-header-block">
+            <div class="section-eyebrow">Verified Training · Forage Simulations &amp; Qualifications</div>
+            <h2 class="section-title">Job Simulations, Certifications &amp; Education</h2>
+          </div>
+
+          <div class="credentials-grid">
+            <!-- Left Column: Job Simulations -->
+            <div class="cred-panel">
+              <h3 class="cred-panel-title">01 // Virtual Job Simulations (Forage)</h3>
+
+              <ul class="cert-list">
+                <li class="cert-item">
+                  <div>
+                    <div class="cert-name">Service Desk Job Simulation — Datacom</div>
+                    <div class="cert-issuer">Forage · Virtual Job Simulation</div>
+                    <p class="cert-detail">
+                      Applied ITIL practices to categorize, log, prioritize, and escalate incidents in a managed services environment. Diagnosed a multi-ticket network outage by assessing impact and urgency and delivering clear user communications.
+                    </p>
+                  </div>
+                  <span class="cert-year">Forage</span>
+                </li>
+
+                <li class="cert-item">
+                  <div>
+                    <div class="cert-name">Cybersecurity Job Simulation — Mastercard</div>
+                    <div class="cert-issuer">Forage · Virtual Job Simulation</div>
+                    <p class="cert-detail">
+                      Identified and reported security threats including phishing within a security awareness team simulation. Evaluated security training gaps across business units and helped implement targeted training procedures.
+                    </p>
+                  </div>
+                  <span class="cert-year">Forage</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Right Column: Certifications & Education -->
+            <div class="cred-panel">
+              <h3 class="cred-panel-title">02 // Certifications &amp; Education</h3>
+
+              <ul class="cert-list">
+                <li class="cert-item">
+                  <div>
+                    <div class="cert-name">Cybersecurity Analyst</div>
+                    <div class="cert-issuer">Cisco Networking Academy</div>
+                  </div>
+                  <span class="cert-year">2025</span>
+                </li>
+                <li class="cert-item">
+                  <div>
+                    <div class="cert-name">HaloPSA Certified (Service Desk)</div>
+                    <div class="cert-issuer">HaloPSA Academy</div>
+                  </div>
+                  <span class="cert-year">2025</span>
+                </li>
+                <li class="cert-item">
+                  <div>
+                    <div class="cert-name">Network Technician</div>
+                    <div class="cert-issuer">Cisco Networking Academy</div>
+                  </div>
+                  <span class="cert-year">2025</span>
+                </li>
+                <li class="cert-item">
+                  <div>
+                    <div class="cert-name">Foundations of ITIL 4 for Service Management</div>
+                    <div class="cert-issuer">Alison (CPD-accredited)</div>
+                  </div>
+                  <span class="cert-year">2025</span>
+                </li>
+                <li class="cert-item">
+                  <div>
+                    <div class="cert-name">Diploma of Completion: RPA and Automation</div>
+                    <div class="cert-issuer">UiPath Academy / Udemy</div>
+                  </div>
+                  <span class="cert-year">2022</span>
+                </li>
+                <li class="cert-item">
+                  <div>
+                    <div class="cert-name">Certificate in Web Development (HTML, CSS, PHP, MySQL, GitHub)</div>
+                    <div class="cert-issuer">CodeSpace Academy</div>
+                  </div>
+                  <span class="cert-year">2019</span>
+                </li>
+                <li class="cert-item">
+                  <div>
+                    <div class="cert-name">National Senior Certificate (Matric)</div>
+                    <div class="cert-issuer">Queens Park High School</div>
+                  </div>
+                  <span class="cert-year">2018</span>
+                </li>
               </ul>
             </div>
           </div>
         </div>
+      </section>
+    </main>
 
-        <div data-panel="sim" class="grid-2" style="margin-bottom: 24px;">
-          <article class="card">
-            <span class="section-tag mono">FORAGE · VIRTUAL JOB SIMULATION</span>
-            <h3>Datacom — Service Desk Job Simulation</h3>
-            <ul class="clean-list">
-              <li>Completed a job simulation involving IT support and incident management for Datacom's managed services team, honing critical issue prioritisation and resolution in a high-stakes environment.</li>
-              <li>Applied ITIL processes to categorise, log, and escalate incidents in alignment with service management best practices.</li>
-              <li>Diagnosed a complex network outage issue using analytical thinking to assess impact and urgency across multiple client tickets, delivering empathetic and clear user follow-up communications.</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <span class="section-tag mono">FORAGE · VIRTUAL JOB SIMULATION</span>
-            <h3>Mastercard — Cybersecurity Job Simulation</h3>
-            <ul class="clean-list">
-              <li>Served as an analyst on Mastercard's Security Awareness Team in a job simulation environment.</li>
-              <li>Helped identify and report security threats, including phishing.</li>
-              <li>Analyzed business areas requiring stronger security training and implemented training courses and procedures for those teams.</li>
-            </ul>
-          </article>
-        </div>
-
-        <div data-panel="certs" class="card">
-          <span class="section-tag mono">EDUCATION &amp; CERTIFICATIONS</span>
-          <h3>Certifications &amp; Academic Background</h3>
-          <div class="grid-2" style="margin-top: 12px;">
-            <ul class="clean-list">
-              <li><strong>Ethical Hacking</strong> — Cisco Networking Academy (2025)</li>
-              <li><strong>Cybersecurity Analyst</strong> — Cisco Networking Academy (2025)</li>
-              <li><strong>HaloPSA Certified (Service Desk)</strong> — HaloPSA Academy (2025)</li>
-              <li><strong>Network Technician</strong> — Cisco Networking Academy (2025)</li>
-            </ul>
-            <ul class="clean-list">
-              <li><strong>Diploma of Completion: RPA and Automation</strong> — UiPath Academy / Udemy (2021–2022)</li>
-              <li><strong>CISSP Study and Security Concepts Course</strong> — Alison (Completed)</li>
-              <li><strong>Certificate in Web Development (HTML, CSS, PHP, MySQL, GitHub)</strong> — CodeSpace Academy (2019)</li>
-              <li><strong>National Senior Certificate (Matric)</strong> — Queens Park High School (2014–2018)</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Interactive Ticket Triage Widget -->
-        <div id="triage" class="triage-box">
-          <span class="section-tag mono">INTERACTIVE TICKET TRIAGE WIDGET</span>
-          <h3>Simulate IT Triage, Tagging &amp; POPIA-Safe Escalation</h3>
-          <p>Select a scenario to inspect queue routing, diagnostic checklist items, and internal escalation notes.</p>
-
-          <div class="scenario-tabs" role="group" aria-label="Triage Scenarios">
-            <button type="button" class="filter-btn active" data-scenario="outage">Fibre / Network Outage</button>
-            <button type="button" class="filter-btn" data-scenario="phishing">Phishing &amp; Threat Alert</button>
-            <button type="button" class="filter-btn" data-scenario="simswap">SIM Swap / Fraud Check</button>
-            <button type="button" class="filter-btn" data-scenario="provisioning">Device / SIM Provisioning</button>
-          </div>
-
-          <div id="triageOutput" class="triage-output"></div>
-        </div>
-
-        <!-- Uploaded Images Strip -->
-        <div class="gallery-grid" aria-label="Portfolio Images">
-          <div class="gallery-item">
-            <img src="img/pic1.jpg" alt="Portfolio visual 1" />
-            <p class="mono">01 // img/pic1.jpg</p>
-          </div>
-          <div class="gallery-item">
-            <img src="img/pic2.jpg" alt="Portfolio visual 2" />
-            <p class="mono">02 // img/pic2.jpg</p>
-          </div>
-          <div class="gallery-item">
-            <img src="img/pic3.jpg" alt="Portfolio visual 3" />
-            <p class="mono">03 // img/pic3.jpg</p>
-          </div>
-        </div>
+    <!-- Editorial Footer -->
+    <footer class="site-footer">
+      <div>© 2026 Jeremie Kobo · Cape Town, Western Cape, South Africa</div>
+      <div class="footer-links">
+        <a href="mailto:jeremiekobo13@gmail.com">Email</a>
+        <a href="tel:+27762953941">Call</a>
+        <a href="https://github.com/ProjectJeremie13" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/jeremie-ephaphrase-kobo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="resume/Jeremie Kobo IT 2.pdf" download="Jeremie Kobo IT 2.pdf" id="footerDownloadResumeLink">Resume PDF</a>
+        <a href="#introduce">Back to Top ↑</a>
       </div>
-    </section>
+    </footer>
+  </div>
 
-    <!-- 04 // EXPERIENCE -->
-    <section id="experience" class="section-block">
-      <div class="container">
-        <span class="section-tag mono">04 // EXPERIENCE</span>
-        <h2>Work Experience</h2>
-
-        <div class="grid-3">
-          <article class="card">
-            <span class="section-tag mono">2025 – PRESENT · CAPE TOWN</span>
-            <h3>Vodapay Digital Solutions</h3>
-            <p style="font-size: 0.85rem; margin-bottom: 10px;"><strong>Call Force</strong></p>
-            <ul class="clean-list">
-              <li>Managed customer accounts and delivered technical and account support across multiple channels.</li>
-              <li>Troubleshot Vodapay issues, collaborated on escalations, and documented interactions in M2, ICAP, and Siebel.</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <span class="section-tag mono">2024 – PRESENT · CAPE TOWN</span>
-            <h3>Vodacom Social Media Community Manager</h3>
-            <p style="font-size: 0.85rem; margin-bottom: 10px;"><strong>Call Force</strong></p>
-            <ul class="clean-list">
-              <li>Aligned social support workflows with client needs, moderated communities, and logged CRM records.</li>
-              <li>Executed SIM swap fraud checks, authentication checks, and incident reporting with the fraud team.</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <span class="section-tag mono">2021 – 2022 · CAPE TOWN</span>
-            <h3>IT Technical Support</h3>
-            <p style="font-size: 0.85rem; margin-bottom: 10px;"><strong>Xib Solutions</strong></p>
-            <ul class="clean-list">
-              <li>Monitored APIs, RPA workflows, and dashboards in Splunk, Grafana, Elastic, and UiPath Orchestrator.</li>
-              <li>Ran hourly latency tests, resolved hardware/software/network issues, and escalated incidents in Jira per SOPs.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 05 // CONTACT -->
-    <section id="contact" class="section-block">
-      <div class="container">
-        <span class="section-tag mono">05 // CONTACT</span>
-        <h2>Get In Touch</h2>
-        <p style="margin-bottom: 24px;">Location: <strong>Cape Town, South Africa</strong>. Tap the mobile number on a phone to call directly, or click email to open your mail app.</p>
-
-        <div class="contact-box">
-          <a href="tel:+27762953941" class="contact-link">
-            <span class="contact-label mono">Cell / Mobile (Click to Call)</span>
-            <span class="contact-val mono">+27 76 295 3941</span>
-          </a>
-
-          <a href="mailto:jeremiekobo13@gmail.com?subject=IT%20Role%20%2F%20Technical%20Support%20Inquiry" class="contact-link">
-            <span class="contact-label mono">Email (Click to Email)</span>
-            <span class="contact-val">jeremiekobo13@gmail.com</span>
-          </a>
-
-          <a href="https://www.linkedin.com/in/jeremie-ephaphrase-kobo" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-label mono">LinkedIn</span>
-            <span class="contact-val">linkedin.com/in/jeremie-ephaphrase-kobo</span>
-          </a>
-
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-label mono">GitHub</span>
-            <span class="contact-val">github.com</span>
-          </a>
-        </div>
-
-        <div style="margin-top: 24px;">
-          <a href="resume/Jeremie Kobo IT 2.pdf" download class="btn btn-primary">Download CV (PDF)</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container mono">
-      Jeremie Kobo · IT Service &amp; Technical Support Professional · Cape Town, South Africa
-    </div>
-  </footer>
+  <!-- Toast Feedback Banner -->
+  <div id="toastBanner" class="toast-banner" role="status" aria-live="polite"></div>
 
   <script>
     (function () {
-      const root = document.documentElement;
-      const presetButtons = document.querySelectorAll('[data-theme-btn]');
-      const topThemeBtns = document.querySelectorAll('.theme-btn');
-      const randomThemeBtn = document.getElementById('randomThemeBtn');
-      const randomSwatchBtn = document.getElementById('randomSwatchBtn');
+      'use strict';
 
-      const customVars = [
-        '--bg', '--surface', '--surface-2', '--text', '--muted',
-        '--accent', '--accent-soft', '--border', '--btn-text'
-      ];
-
-      function clearCustomVars() {
-        customVars.forEach((v) => root.style.removeProperty(v));
-      }
-
-      function setActiveThemeButton(mode) {
-        topThemeBtns.forEach((b) => b.classList.remove('active'));
-        if (mode === 'random') {
-          randomThemeBtn.classList.add('active');
-        } else {
-          const match = document.querySelector('.theme-btn[data-theme-btn="' + mode + '"]');
-          if (match) match.classList.add('active');
-        }
-      }
-
-      function applyPreset(theme) {
-        clearCustomVars();
-        root.setAttribute('data-theme', theme);
-        setActiveThemeButton(theme);
-      }
-
-      function applyRandomTheme() {
-        const isDark = Math.random() > 0.45;
-        const hue = Math.floor(Math.random() * 360);
-        const accentHue = (hue + 135) % 360;
-
-        root.style.setProperty('--bg', isDark ? 'hsl(' + hue + ', 14%, 8%)' : 'hsl(' + hue + ', 24%, 96%)');
-        root.style.setProperty('--surface', isDark ? 'hsl(' + hue + ', 14%, 13%)' : 'hsl(' + hue + ', 20%, 91%)');
-        root.style.setProperty('--surface-2', isDark ? 'hsl(' + hue + ', 14%, 18%)' : 'hsl(' + hue + ', 18%, 85%)');
-        root.style.setProperty('--text', isDark ? '#f4f7f5' : '#111827');
-        root.style.setProperty('--muted', isDark ? '#a3b1a8' : '#4b5563');
-        root.style.setProperty('--accent', 'hsl(' + accentHue + ', 75%, ' + (isDark ? '52%' : '42%') + ')');
-        root.style.setProperty('--accent-soft', 'hsla(' + accentHue + ', 75%, 50%, 0.15)');
-        root.style.setProperty('--border', isDark ? 'rgba(255,255,255,0.12)' : 'rgba(17,24,39,0.12)');
-        root.style.setProperty('--btn-text', isDark ? '#08110c' : '#ffffff');
-        setActiveThemeButton('random');
-      }
-
-      presetButtons.forEach((btn) => {
-        btn.addEventListener('click', () => applyPreset(btn.getAttribute('data-theme-btn')));
-      });
-      randomThemeBtn.addEventListener('click', applyRandomTheme);
-      randomSwatchBtn.addEventListener('click', applyRandomTheme);
-
-      // Filter panels
-      const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
-      const panels = document.querySelectorAll('[data-panel]');
-
-      filterBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const filter = btn.getAttribute('data-filter');
-          filterBtns.forEach((b) => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          panels.forEach((panel) => {
-            const cat = panel.getAttribute('data-panel');
-            panel.classList.toggle('hidden-panel', !(filter === 'all' || filter === cat));
-          });
-        });
-      });
-
-      // Ticket Triage Widget
-      const scenarios = {
-        outage: {
-          queue: 'Queue: Second Line / Network Coverage & Fibre',
-          priority: 'Priority: High Impact (Work-From-Home)',
-          ref: 'Ref: SR26****-46****',
-          checklist: 'Move sensitive reference/callback info to a private channel; confirm outage duration and affected line.',
-          note: 'Escalated connectivity disruption affecting work-from-home duties. Reference SR26****-46**** and callback details captured privately for specialist resolution.'
-        },
-        phishing: {
-          queue: 'Queue: Security Operations & Awareness',
-          priority: 'Priority: Security Threat Triage',
-          ref: 'Ref: SEC-****',
-          checklist: 'Isolate suspicious link/sender details without clicking; log IOC indicators and review affected user group training.',
-          note: 'Reported potential phishing/social-engineering attempt. Logged threat indicators for security review and flagged team awareness follow-up.'
-        },
-        simswap: {
-          queue: 'Queue: Fraud & Authentication Escalation',
-          priority: 'Priority: High Risk / POPIA Protected',
-          ref: 'Ref: FRD-****',
-          checklist: 'Never expose account/SIM details publicly; run authentication & SIM swap checks and route to fraud specialist.',
-          note: 'Initiated SIM swap fraud and authentication verification workflow; kept sensitive identifiers in restricted channel and logged incident.'
-        },
-        provisioning: {
-          queue: 'Queue: Service Desk / Device & Provisioning',
-          priority: 'Priority: Diagnostic Intake',
-          ref: 'Ref: Case #149****',
-          checklist: 'Collect affected number, IMEI, SIM starting with 89, purchase date, store info, device make/model, and alternate number.',
-          note: 'Compiled full hardware and SIM provisioning diagnostic checklist (IMEI, ICCID prefix 89, purchase metadata) for second-line verification.'
-        }
+      /* ------------------------------------------------------------------------
+         1. THEME STUDIO (6 DARK + 2 LIGHT + SWATCH-DERIVED RANDOMIZER)
+         ------------------------------------------------------------------------ */
+      const PRESET_METADATA = {
+        'morozov-noir': ['#0d0e11', '#1a1d24', '#8a8d94', '#f2f2f0'],
+        'bordo-cream': ['#470d14', '#6C151E', '#0F3D3A', '#F5DABF'],
+        'dusk-midnight': ['#10232A', '#3D4D55', '#B58863', '#D3C3B9'],
+        'forest-emerald': ['#0b2e2c', '#0F3D3A', '#6C151E', '#F5DABF'],
+        'copper-slate': ['#161616', '#3D4D55', '#B58863', '#D3C3B9'],
+        'obsidian-terminal': ['#070708', '#131318', '#c58a45', '#e9e7e2'],
+        'alice-charcoal': ['#F0F8FF', '#d5e5f4', '#36414B', '#1E252B'],
+        'clean-light': ['#f8f9fb', '#ffffff', '#374151', '#111827']
       };
 
-      const scenarioBtns = document.querySelectorAll('.scenario-tabs .filter-btn');
-      const triageOutput = document.getElementById('triageOutput');
+      const root = document.documentElement;
+      const studioDrawer = document.getElementById('themeStudioDrawer');
+      const openStudioBtn = document.getElementById('openStudioBtn');
+      const closeStudioBtn = document.getElementById('closeStudioBtn');
+      const themeButtons = document.querySelectorAll('[data-set-theme]');
+      const randomizeBtn = document.getElementById('randomizeThemeBtn');
+      const paletteReadout = document.getElementById('activePaletteReadout');
+      const headerSwatchPreview = document.getElementById('headerSwatchPreview');
 
-      function renderScenario(key) {
-        const s = scenarios[key];
-        triageOutput.innerHTML =
-          '<div class="triage-meta mono">' +
-          '<span class="triage-badge">' + s.queue + '</span>' +
-          '<span class="pill">' + s.priority + '</span>' +
-          '<span class="pill">' + s.ref + '</span>' +
-          '</div>' +
-          '<p style="margin-bottom: 10px;"><strong>Diagnostic &amp; Privacy Step:</strong> ' + s.checklist + '</p>' +
-          '<p><strong>Handover Note:</strong> ' + s.note + '</p>';
+      function updateSwatchUI(hexList) {
+        paletteReadout.innerHTML = hexList
+          .map(hex => `<span class="hex-chip"><i style="background:${hex}"></i>${hex.toUpperCase()}</span>`)
+          .join('');
+
+        headerSwatchPreview.innerHTML = hexList
+          .slice(0, 3)
+          .map(hex => `<i style="background:${hex}"></i>`)
+          .join('');
       }
 
-      scenarioBtns.forEach((btn) => {
+      function clearCustomInlineVars() {
+        const props = [
+          '--bg-outer', '--bg-canvas', '--bg-surface', '--bg-surface-elevated',
+          '--border-hairline', '--border-strong', '--text-primary',
+          '--text-secondary', '--text-muted', '--accent', '--accent-contrast', '--accent-secondary'
+        ];
+        props.forEach(p => root.style.removeProperty(p));
+      }
+
+      function applyPresetTheme(themeName) {
+        clearCustomInlineVars();
+        root.setAttribute('data-theme', themeName);
+        themeButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-set-theme') === themeName);
+        });
+        if (PRESET_METADATA[themeName]) {
+          updateSwatchUI(PRESET_METADATA[themeName]);
+        }
+      }
+
+      function shiftHex(hex, amount) {
+        const clean = hex.replace('#', '');
+        const num = parseInt(clean, 16);
+        const r = Math.min(255, Math.max(0, (num >> 16) + amount));
+        const g = Math.min(255, Math.max(0, ((num >> 8) & 0x00ff) + amount));
+        const b = Math.min(255, Math.max(0, (num & 0x0000ff) + amount));
+        return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+      }
+
+      function generateRandomSwatchTheme() {
+        const modes = [
+          { base: '#10232A', text: '#D3C3B9', secondary: '#3D4D55', accents: ['#B58863', '#F5DABF'], light: false },
+          { base: '#0F3D3A', text: '#F5DABF', secondary: '#6C151E', accents: ['#F5DABF', '#B58863'], light: false },
+          { base: '#161616', text: '#D3C3B9', secondary: '#3D4D55', accents: ['#B58863', '#F5DABF'], light: false },
+          { base: '#6C151E', text: '#F5DABF', secondary: '#0F3D3A', accents: ['#F5DABF', '#D3C3B9'], light: false },
+          { base: '#F0F8FF', text: '#1E252B', secondary: '#3D4D55', accents: ['#1E252B', '#6C151E', '#0F3D3A'], light: true },
+          { base: '#f8f9fb', text: '#111827', secondary: '#4b5563', accents: ['#111827', '#10232A', '#6C151E'], light: true }
+        ];
+
+        const pick = modes[Math.floor(Math.random() * modes.length)];
+        const accent = pick.accents[Math.floor(Math.random() * pick.accents.length)];
+        const outer = pick.light ? shiftHex(pick.base, -14) : shiftHex(pick.base, -14);
+        const surface = pick.light ? (pick.base === '#f8f9fb' ? '#ffffff' : shiftHex(pick.base, -10)) : shiftHex(pick.base, 12);
+        const elevated = pick.light ? shiftHex(pick.base, -18) : shiftHex(pick.base, 24);
+
+        root.setAttribute('data-theme', 'custom-random');
+        root.style.setProperty('--bg-outer', outer);
+        root.style.setProperty('--bg-canvas', pick.base);
+        root.style.setProperty('--bg-surface', surface);
+        root.style.setProperty('--bg-surface-elevated', elevated);
+        root.style.setProperty('--border-hairline', pick.light ? 'rgba(17, 24, 39, 0.12)' : 'rgba(245, 218, 191, 0.16)');
+        root.style.setProperty('--border-strong', pick.light ? 'rgba(17, 24, 39, 0.26)' : 'rgba(245, 218, 191, 0.36)');
+        root.style.setProperty('--text-primary', pick.text);
+        root.style.setProperty('--text-secondary', pick.light ? '#374151' : '#A79E9C');
+        root.style.setProperty('--text-muted', pick.light ? '#6b7280' : '#8c8884');
+        root.style.setProperty('--accent', accent);
+        root.style.setProperty('--accent-contrast', pick.light ? '#ffffff' : pick.base);
+        root.style.setProperty('--accent-secondary', pick.secondary);
+
+        themeButtons.forEach(btn => btn.classList.remove('active'));
+        updateSwatchUI([pick.base, pick.secondary, accent, pick.text]);
+        showToast(`Random Swatch Theme Applied (${pick.base} / ${accent})`);
+      }
+
+      openStudioBtn.addEventListener('click', () => {
+        const isOpen = studioDrawer.classList.toggle('open');
+        openStudioBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      closeStudioBtn.addEventListener('click', () => {
+        studioDrawer.classList.remove('open');
+        openStudioBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      themeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-          scenarioBtns.forEach((b) => b.classList.remove('active'));
-          btn.classList.add('active');
-          renderScenario(btn.getAttribute('data-scenario'));
+          applyPresetTheme(btn.getAttribute('data-set-theme'));
         });
       });
 
-      renderScenario('outage');
+      randomizeBtn.addEventListener('click', generateRandomSwatchTheme);
+      applyPresetTheme('morozov-noir');
 
-      // Active nav link on scroll
-      const sections = document.querySelectorAll('main section[id]');
-      const navLinks = document.querySelectorAll('[data-nav]');
+      /* ------------------------------------------------------------------------
+         2. JK MONOGRAM TAP / HOVER TO REVEAL pic4
+         ------------------------------------------------------------------------ */
+      const jkCard = document.getElementById('jkPortraitCard');
+      jkCard.addEventListener('click', () => {
+        jkCard.classList.toggle('revealed');
+      });
 
-      window.addEventListener('scroll', () => {
-        let current = 'home';
-        sections.forEach((sec) => {
-          if (window.scrollY >= sec.offsetTop - 160) {
-            current = sec.id;
-          }
-        });
-        navLinks.forEach((a) => {
-          a.classList.toggle('active', a.getAttribute('data-nav') === current);
-        });
-      }, { passive: true });
+      /* ------------------------------------------------------------------------
+         3. KOBOSEC 3-SCREENSHOT HOVER RANDOMIZER
+         ------------------------------------------------------------------------ */
+      const KOBOSEC_SCREENSHOTS = [
+        {
+          id: 1,
+          label: 'SCREENSHOT 1/3 · MONOCHROME OVERVIEW',
+          imgSrc: 'img/kobosec-1.png',
+          svg: `
+            <svg viewBox="0 0 640 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="640" height="400" fill="#0d0e11"/>
+              <rect width="640" height="32" fill="#121317"/>
+              <text x="16" y="20" fill="#f2f2f0" font-family="monospace" font-size="11" font-weight="bold">KOBOSEC</text>
+              <text x="230" y="20" fill="#f2f2f0" font-family="sans-serif" font-size="9">Overview   Alerts (1)   Cases   Portal   Admin</text>
+              <rect x="552" y="6" width="74" height="20" rx="3" fill="#f2f2f0"/>
+              <text x="589" y="19" text-anchor="middle" fill="#0d0e11" font-family="sans-serif" font-size="8" font-weight="bold">Theme Studio</text>
+              <rect x="16" y="42" width="608" height="28" rx="4" fill="#13151a" stroke="#252830"/>
+              <rect x="22" y="47" width="62" height="18" rx="2" fill="#f2f2f0"/>
+              <text x="53" y="59" text-anchor="middle" fill="#0d0e11" font-family="sans-serif" font-size="7.5" font-weight="bold">Pause Clock</text>
+              <text x="102" y="59" fill="#9ca0a8" font-family="monospace" font-size="7.5">Step +3s | Credential Stuffing | Bandwidth Hog | ISP Latency</text>
+              <g font-family="monospace">
+                <rect x="16" y="80" width="144" height="58" rx="4" fill="#13151a" stroke="#252830"/>
+                <text x="24" y="95" fill="#8a8d94" font-size="7.5">Open Alerts</text><text x="132" y="95" fill="#e5b184" font-size="7.5">HIGH</text>
+                <text x="24" y="122" fill="#f2f2f0" font-size="19" font-weight="bold">1</text>
+                <rect x="170" y="80" width="144" height="58" rx="4" fill="#13151a" stroke="#252830"/>
+                <text x="178" y="95" fill="#8a8d94" font-size="7.5">Open Cases</text><text x="286" y="95" fill="#dfcf8b" font-size="7.5">MEDI</text>
+                <text x="178" y="122" fill="#f2f2f0" font-size="19" font-weight="bold">1</text>
+                <rect x="324" y="80" width="144" height="58" rx="4" fill="#13151a" stroke="#252830"/>
+                <text x="332" y="95" fill="#8a8d94" font-size="7.5">WAN Throughput</text><text x="440" y="95" fill="#f0a795" font-size="7.5">CRIT</text>
+                <text x="332" y="122" fill="#f2f2f0" font-size="19" font-weight="bold">5 Mbps</text>
+                <rect x="478" y="80" width="146" height="58" rx="4" fill="#13151a" stroke="#252830"/>
+                <text x="486" y="95" fill="#8a8d94" font-size="7.5">Failed Logins/min</text><text x="596" y="95" fill="#f0a795" font-size="7.5">CRIT</text>
+                <text x="486" y="122" fill="#f2f2f0" font-size="19" font-weight="bold">69 /min</text>
+              </g>
+              <rect x="16" y="152" width="298" height="224" rx="5" fill="#13151a" stroke="#252830"/>
+              <text x="28" y="172" fill="#f2f2f0" font-family="sans-serif" font-size="10" font-weight="bold">WAN Throughput</text>
+              <line x1="28" y1="275" x2="300" y2="275" stroke="#d0654f" stroke-dasharray="4 3"/>
+              <polyline points="32,215 65,217 98,214 131,212 164,215 197,292 230,296 263,345 296,345" fill="none" stroke="#f2f2f0" stroke-width="2"/>
+              <circle cx="197" cy="292" r="3.5" fill="#d0654f"/><circle cx="296" cy="345" r="3.5" fill="#d0654f"/>
+              <rect x="326" y="152" width="298" height="224" rx="5" fill="#13151a" stroke="#252830"/>
+              <text x="338" y="172" fill="#f2f2f0" font-family="sans-serif" font-size="10" font-weight="bold">Failed Logins per Minute</text>
+              <line x1="338" y1="325" x2="610" y2="325" stroke="#d0654f" stroke-dasharray="4 3"/>
+              <polyline points="342,345 375,347 408,346 441,344 474,235 507,242 540,238 573,210 606,210" fill="none" stroke="#8fa1b5" stroke-width="2"/>
+              <circle cx="474" cy="235" r="3.5" fill="#d0654f"/><circle cx="606" cy="210" r="3.5" fill="#d0654f"/>
+            </svg>
+          `
+        },
+        {
+          id: 2,
+          label: 'SCREENSHOT 2/3 · AMBER MIDNIGHT THEME',
+          imgSrc: 'img/kobosec-2.png',
+          svg: `
+            <svg viewBox="0 0 640 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="640" height="400" fill="#090d16"/>
+              <rect width="640" height="32" fill="#0d1320"/>
+              <text x="16" y="20" fill="#f8fafc" font-family="monospace" font-size="11" font-weight="bold">KOBOSEC</text>
+              <text x="230" y="20" fill="#cbd5e1" font-family="sans-serif" font-size="9">Overview   Alerts (1)   Cases   Portal   Admin</text>
+              <rect x="552" y="6" width="74" height="20" rx="3" fill="#f59e0b"/>
+              <text x="589" y="19" text-anchor="middle" fill="#090d16" font-family="sans-serif" font-size="8" font-weight="bold">Theme Studio</text>
+              <rect x="16" y="42" width="608" height="28" rx="4" fill="#0f172a" stroke="#1e293b"/>
+              <rect x="22" y="47" width="62" height="18" rx="2" fill="#f59e0b"/>
+              <text x="53" y="59" text-anchor="middle" fill="#090d16" font-family="sans-serif" font-size="7.5" font-weight="bold">Pause Clock</text>
+              <g font-family="monospace">
+                <rect x="16" y="80" width="144" height="58" rx="4" fill="#0f172a" stroke="#1e293b"/>
+                <text x="24" y="95" fill="#94a3b8" font-size="7.5">Open Alerts</text><text x="132" y="95" fill="#f59e0b" font-size="7.5">HIGH</text>
+                <text x="24" y="122" fill="#f8fafc" font-size="19" font-weight="bold">1</text>
+                <rect x="170" y="80" width="144" height="58" rx="4" fill="#0f172a" stroke="#1e293b"/>
+                <text x="178" y="95" fill="#94a3b8" font-size="7.5">Open Cases</text><text x="286" y="95" fill="#eab308" font-size="7.5">MEDI</text>
+                <text x="178" y="122" fill="#f8fafc" font-size="19" font-weight="bold">1</text>
+                <rect x="324" y="80" width="144" height="58" rx="4" fill="#0f172a" stroke="#1e293b"/>
+                <text x="332" y="95" fill="#94a3b8" font-size="7.5">WAN Throughput</text><text x="440" y="95" fill="#f43f5e" font-size="7.5">CRIT</text>
+                <text x="332" y="122" fill="#f8fafc" font-size="19" font-weight="bold">5 Mbps</text>
+                <rect x="478" y="80" width="146" height="58" rx="4" fill="#0f172a" stroke="#1e293b"/>
+                <text x="486" y="95" fill="#94a3b8" font-size="7.5">Failed Logins/min</text><text x="596" y="95" fill="#f43f5e" font-size="7.5">CRIT</text>
+                <text x="486" y="122" fill="#f8fafc" font-size="19" font-weight="bold">40 /min</text>
+              </g>
+              <rect x="16" y="152" width="298" height="224" rx="5" fill="#0f172a" stroke="#1e293b"/>
+              <text x="28" y="172" fill="#f8fafc" font-family="sans-serif" font-size="10" font-weight="bold">WAN Throughput (Amber Bars)</text>
+              <g fill="#f59e0b" fill-opacity="0.22">
+                <rect x="30" y="212" width="12" height="133"/><rect x="52" y="214" width="12" height="131"/>
+                <rect x="74" y="208" width="12" height="137"/><rect x="96" y="212" width="12" height="133"/>
+              </g>
+              <polyline points="36,212 58,214 80,208 102,212 190,294 212,292 234,340 256,340" fill="none" stroke="#f59e0b" stroke-width="2"/>
+              <rect x="326" y="152" width="298" height="224" rx="5" fill="#0f172a" stroke="#1e293b"/>
+              <text x="338" y="172" fill="#f8fafc" font-family="sans-serif" font-size="10" font-weight="bold">Failed Logins per Minute (Cyan/Rose)</text>
+              <g fill="#f43f5e" fill-opacity="0.28">
+                <rect x="546" y="225" width="12" height="120"/><rect x="568" y="232" width="12" height="113"/><rect x="590" y="228" width="12" height="117"/>
+              </g>
+              <polyline points="342,340 380,340 420,338 460,342 500,344 552,225 574,232 596,228" fill="none" stroke="#38bdf8" stroke-width="2"/>
+            </svg>
+          `
+        },
+        {
+          id: 3,
+          label: 'SCREENSHOT 3/3 · SEGMENTS & TELEMETRY STREAM',
+          imgSrc: 'img/kobosec-3.png',
+          svg: `
+            <svg viewBox="0 0 640 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="640" height="400" fill="#0d0e11"/>
+              <rect width="640" height="32" fill="#121317"/>
+              <text x="16" y="20" fill="#f2f2f0" font-family="monospace" font-size="11" font-weight="bold">KOBOSEC</text>
+              <text x="230" y="20" fill="#f2f2f0" font-family="sans-serif" font-size="9">Overview   Alerts (1)   Cases   Portal   Admin</text>
+              <rect x="16" y="48" width="248" height="332" rx="6" fill="#13151a" stroke="#252830"/>
+              <text x="28" y="72" fill="#f2f2f0" font-family="sans-serif" font-size="11" font-weight="bold">01. Monitored Segments</text>
+              <g font-family="monospace">
+                <text x="28" y="114" fill="#f2f2f0" font-size="9" font-weight="bold">WAN · Crit 5/5</text>
+                <text x="28" y="126" fill="#d0654f" font-size="7.5">ALERTING</text>
+                <rect x="204" y="104" width="48" height="22" rx="3" fill="#191c22" stroke="#3a3f4b"/>
+                <text x="228" y="118" text-anchor="middle" fill="#f2f2f0" font-size="7.5">Contain</text>
+                <text x="28" y="162" fill="#f2f2f0" font-size="9" font-weight="bold">DMZ · Crit 4/5</text>
+                <text x="28" y="174" fill="#7e9e82" font-size="7.5">NOMINAL</text>
+                <text x="28" y="210" fill="#f2f2f0" font-size="9" font-weight="bold">Web Portal · Crit 5/5</text>
+                <text x="28" y="222" fill="#d0654f" font-size="7.5">ALERTING</text>
+              </g>
+              <rect x="276" y="48" width="348" height="332" rx="6" fill="#13151a" stroke="#252830"/>
+              <text x="288" y="72" fill="#f2f2f0" font-family="sans-serif" font-size="11" font-weight="bold">02. Live Telemetry Stream</text>
+              <g font-family="monospace" font-size="7.5">
+                <text x="288" y="108" fill="#787c85">Time (UTC)   Sev    Segment      Source IP</text>
+                <text x="288" y="134" fill="#f2f2f0">14:36:43</text><text x="346" y="134" fill="#e5b184">HIGH</text><text x="380" y="134" fill="#f2f2f0">Web Portal   203.0.113.50</text>
+                <text x="288" y="164" fill="#f2f2f0">14:36:43</text><text x="346" y="164" fill="#dfcf8b">MEDI</text><text x="380" y="164" fill="#f2f2f0">VPN          198.51.100.201</text>
+                <text x="288" y="194" fill="#f2f2f0">14:36:43</text><text x="346" y="194" fill="#e5b184">HIGH</text><text x="380" y="194" fill="#f2f2f0">WAN          10.20.8.44</text>
+                <text x="288" y="224" fill="#f2f2f0">14:36:43</text><text x="346" y="224" fill="#7e9e82">NOMI</text><text x="380" y="224" fill="#f2f2f0">WAN          10.20.13.35</text>
+              </g>
+            </svg>
+          `
+        }
+      ];
+
+      let lastKoboIndex = -1;
+      const koboViewport = document.getElementById('viewport-kobosec');
+      const koboHoverLayer = document.getElementById('hover-layer-kobosec');
+      const koboBadge = document.getElementById('badge-kobosec');
+
+      function randomizeKoboScreenshot() {
+        let nextIndex;
+        do {
+          nextIndex = Math.floor(Math.random() * KOBOSEC_SCREENSHOTS.length);
+        } while (nextIndex === lastKoboIndex && KOBOSEC_SCREENSHOTS.length > 1);
+
+        lastKoboIndex = nextIndex;
+        const shot = KOBOSEC_SCREENSHOTS[nextIndex];
+
+        koboHoverLayer.innerHTML = `
+          ${shot.svg}
+          <img
+            src="${shot.imgSrc}"
+            alt="KoboSEC SIEM Preview ${shot.id}"
+            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"
+            onerror="this.remove();"
+          />
+        `;
+        koboBadge.textContent = `${shot.label} · CLICK TO EXPLORE`;
+      }
+
+      randomizeKoboScreenshot();
+      koboViewport.addEventListener('mouseenter', randomizeKoboScreenshot);
+
+      function initTemplatePreview(layerId, badgeId, title, code) {
+        const layer = document.getElementById(layerId);
+        const badge = document.getElementById(badgeId);
+        const viewport = layer.parentElement;
+        const variants = [
+          { tag: 'WIREFRAME 1/2 · TRIAGE MATRIX', accent: '#B58863' },
+          { tag: 'WIREFRAME 2/2 · QA VERIFICATION', accent: '#F5DABF' }
+        ];
+        let idx = 0;
+
+        function renderVariant() {
+          idx = (idx + 1) % variants.length;
+          const v = variants[idx];
+          layer.innerHTML = `
+            <svg viewBox="0 0 640 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="640" height="400" fill="#0b0c0f"/>
+              <rect x="24" y="24" width="592" height="352" rx="6" fill="#12141a" stroke="#262932"/>
+              <text x="44" y="56" fill="${v.accent}" font-family="monospace" font-size="11" font-weight="bold">${code} // ARCHITECTURAL BLUEPRINT</text>
+              <text x="44" y="84" fill="#f2f2f0" font-family="sans-serif" font-size="16" font-weight="bold">${title}</text>
+              <rect x="44" y="108" width="552" height="1" fill="#262932"/>
+              <rect x="44" y="128" width="260" height="96" rx="4" fill="#0d0e11" stroke="#22252e"/>
+              <text x="58" y="152" fill="#8a8d94" font-family="monospace" font-size="9">MODULE STATUS: IN PROGRESS</text>
+              <text x="58" y="174" fill="#f2f2f0" font-family="monospace" font-size="11">Ready for Asset Drop-in</text>
+              <rect x="324" y="128" width="272" height="96" rx="4" fill="#0d0e11" stroke="#22252e"/>
+              <text x="338" y="152" fill="#8a8d94" font-family="monospace" font-size="9">REPORT SLOT: RESERVED</text>
+              <text x="338" y="174" fill="${v.accent}" font-family="monospace" font-size="11">Technical Dossier Pending</text>
+              <rect x="44" y="242" width="552" height="110" rx="4" fill="#0d0e11" stroke="#22252e"/>
+              <text x="58" y="268" fill="#787c85" font-family="monospace" font-size="9.5">Designed to match KoboSEC card geometry and hover preview interaction.</text>
+            </svg>
+          `;
+          badge.textContent = v.tag;
+        }
+
+        renderVariant();
+        viewport.addEventListener('mouseenter', renderVariant);
+      }
+
+      initTemplatePreview('hover-layer-p1', 'badge-p1', 'Operational Knowledge & QA Ecosystem', 'SLOT 01');
+      initTemplatePreview('hover-layer-p3', 'badge-p3', 'Personal AI Workflow Agent Design', 'SLOT 03');
+
+      /* ------------------------------------------------------------------------
+         4. RESUME PDF DOWNLOAD FEEDBACK
+         ------------------------------------------------------------------------ */
+      function handleResumeClick() {
+        showToast('Downloading Jeremie Kobo IT 2.pdf...');
+      }
+      document.getElementById('downloadResumeLink').addEventListener('click', handleResumeClick);
+      document.getElementById('footerDownloadResumeLink').addEventListener('click', handleResumeClick);
+
+      /* ------------------------------------------------------------------------
+         5. TOAST FEEDBACK & SCROLL SPY
+         ------------------------------------------------------------------------ */
+      let toastTimer;
+      function showToast(message) {
+        const banner = document.getElementById('toastBanner');
+        banner.textContent = message;
+        banner.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => banner.classList.remove('show'), 3200);
+      }
+
+      const sections = document.querySelectorAll('.editorial-section');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      const scrollDots = document.querySelectorAll('.scroll-dots a');
+
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+            scrollDots.forEach(d => d.classList.toggle('active', d.getAttribute('data-dot') === id));
+          });
+        },
+        { rootMargin: '-25% 0px -60% 0px', threshold: 0 }
+      );
+
+      sections.forEach(sec => observer.observe(sec));
     })();
   </script>
 </body>
